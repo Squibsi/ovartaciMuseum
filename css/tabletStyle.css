@@ -7,3 +7,41 @@ body {
   font-family: Arial, sans-serif;
   background-color: #c9d6e6;
 }
+
+h1, h2{
+  font-family: "Bebas Neue", sans-serif;
+}
+
+p{
+  font-family: "Inter", sans-serif;
+}
+
+#slideImage {
+  width: 100%;
+  height: 38rem;
+  display: block;
+  margin-bottom: 10rem;
+}
+
+#ovartaci1,
+#ovartaci2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Bebas Neue", sans-serif;
+  z-index: 1;
+}
+
+#ovartaci1 {
+  color: white;
+  top: 20%;
+  font-size: 7rem;
+  letter-spacing: 0.5rem;
+  font-weight: lighter;
+}
+
+#ovartaci2 {
+  color: red;
+  top: 11.5%;
+  font-size: 22rem;
+}
