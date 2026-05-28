@@ -1,28 +1,25 @@
 "use strict";
-
-// Hent billed-elementet
-const slideImg = document.getElementById("slideImg");
-
-// Liste over billeder
-const images = [
-  "../img/slide1.png",
-  "../img/slide2.jpg",
-  "../img/slide3.png",
-  "../img/slide4.jpg",
-  // tilføj flere efter behov
-];
+const track = document.getElementById("sliderTrack");
+const amountImages = 3; // <-- tæl hvor mange img du har i slideren
 
 let currentIndex = 0;
 
-// Funktion til at skifte billede
-function switchImage() {
-  // Gå til næste billede (cyklisk)
-  currentIndex = (currentIndex + 1) % images.length;
-  slideImg.src = images[currentIndex];
+//slide animation
+function slideTo(index) {
+  track.style.transform = `translateX(-${index * 100}%)`;
+  currentIndex = index;
 }
 
-// Start automatisk skift hvert 4. sekund (4000 ms)
-let intervalId = setInterval(switchImage, 4000);
+function nextSlide() {
+  let newIndex = currentIndex + 1;
+  if (newIndex >= amountImages) {
+    newIndex = 0;
+  }
+  slideTo(newIndex);
+}
+
+// Start automatisk skift hvert 4. sekund
+setInterval(nextSlide, 4000);
 
 // Info-knap (bare en alert eller lignende)
 const infoBtn = document.getElementById("howItWorksButton");
