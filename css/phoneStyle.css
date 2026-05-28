@@ -1,8 +1,26 @@
 
 /* Variabler */
 
-/* Farver */
 
+:root {
+    /* Farver */
+    --primary-color--: #C7D4E3;
+    --secondary-color--: #DA2328;
+    --text-color--: black;
+    --btn-color--:  #52805A;
+
+    /* Typografier */
+    --header-font--: Bebas Neue;
+    --text-font--: Inter;
+
+    /* Tekst størrelser */
+    --font-size-small:13px;
+    --font-size-base:16px;
+    --font-size-medium:18px;
+    --font-size-large:20px;
+    --font-size-xl:24px;
+    --font-size-xxl:28px;
+}
 
 * {
     margin: 0;
@@ -12,12 +30,12 @@
 
 
 body {
-    font-family: Bebas Neue;
-    background: #C7D4E3;
+    font-family: var(--header-font--);
+    background: var(--primary-color--);
     background-image: url("../img/brain-background.svg");
     background-repeat: no-repeat;
     background-position: center;
-    color: black;
+    color: var(--text-color--);
 }
 
 
@@ -30,12 +48,11 @@ header {
 
 
 nav {
-    background-color: #DA2328;
+    background-color: var(--secondary-color--);
     height: 5vh;
 }
 
 h1 {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,8 +70,10 @@ h1 {
 }
 
 #help-btn {
-    width: 12%;
-    background-color: #52805A;
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    width: 13%;
+    background-color: var(--btn-color--);
     border-radius: 15px;
     padding: 20px;
     outline: none;
@@ -63,6 +82,8 @@ h1 {
 }
 
 #tried-before-btn {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
     background: none;
     border: none;
     text-decoration: underline;
