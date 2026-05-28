@@ -1,7 +1,5 @@
 
-/* Variabler */
-
-
+/* Variabler som kan bruges gennem CSS*/
 :root {
     /* Farver */
     --primary-color--: #C7D4E3;
@@ -10,8 +8,8 @@
     --btn-color--:  #52805A;
 
     /* Typografier */
-    --header-font--: Bebas Neue;
-    --text-font--: Inter;
+    --header-font--: 'Bebas Neue';
+    --text-font--: 'Inter';
 
     /* Tekst størrelser */
     --font-size-small:13px;
@@ -22,6 +20,7 @@
     --font-size-xxl:28px;
 }
 
+/* Resetter styling */
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +32,8 @@ body {
     font-family: var(--header-font--);
     background: var(--primary-color--);
     background-image: url("../img/brain-background.svg");
-    background-repeat: no-repeat;
+    /* Sørger for at baggrundsbilledet kun ses 1 gang */
+    background-repeat: no-repeat; 
     background-position: center;
     color: var(--text-color--);
 }
@@ -60,7 +60,7 @@ h1 {
 }
 
 
-.card {
+.content {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -76,6 +76,7 @@ h1 {
     background-color: var(--btn-color--);
     border-radius: 15px;
     padding: 20px;
+    /* Fjerner outline fra knappen */
     outline: none;
     border: none;
     color: white;
