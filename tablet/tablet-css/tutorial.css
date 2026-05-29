@@ -1,0 +1,125 @@
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter";
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
+
+/* body */
+body {
+  background-color: var(--primary-color--);
+  margin: 0;
+  padding: 0;
+  font-family: var(--text-font--);
+}
+
+/* Header */
+.how-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e66;
+  padding: 1rem 2rem;
+  color: white;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-img {
+  height: 2rem;
+  width: auto;
+}
+
+.logo h1 {
+  font-family: var(--header-font--);
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+/* Navigationsknapper */
+.howNav {
+  display: flex;
+  gap: 1rem;
+}
+
+/* icon billeder */
+#homeIcon,
+#backIcon {
+  height: 2rem;
+  width: auto;
+}
+
+/* Hovedindhold */
+.howMain {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.howMain h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.5rem;
+  color: #2c3e66;
+  margin-bottom: 1rem;
+}
+
+.howText {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 30px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Video-container */
+.videoContainer {
+  background-color: #e9eef3;
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.videoPlaceholder {
+  background-color: #2c3e66;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 16px;
+  font-size: 1.5rem;
+}
+
+/* Forstået-knap */
+.Btnunderstood {
+  background: none;
+  color: black;
+  border: solid 0.5rem var(--secondary-color--);
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-family: var(--text-font--);
+  border-radius: 40px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background 0.2s;
+}
