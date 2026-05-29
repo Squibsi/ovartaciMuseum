@@ -86,7 +86,7 @@ if (codeAcceptBtn) {
   });
 }
 
-// Hvordan fungere dette? (inde i modal)
+// Hvordan fungere dette? (inde i overlay)
 if (codeHowItWorksBtn) {
   codeHowItWorksBtn.addEventListener("click", () => {
     alert(
