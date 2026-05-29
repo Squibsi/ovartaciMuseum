@@ -163,23 +163,23 @@ section {
 /* Luk-kryds */
 .closeBtn {
   position: absolute;
-  top: 15px;
+  top: 1rem;
   right: 20px;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  color: #aaa;
+  color: var(--secondary-color--);
 }
 
 /* Input-felt */
 #codeInput {
-  width: 80%;
-  padding: 12px;
+  width: 90%;
+  padding: 1rem;
   margin: 1rem 0;
   font-size: 1.2rem;
   text-align: center;
   border: 2px solid #ccc;
-  border-radius: 40px;
+  border-radius: 2rem;
   font-family: inherit;
 }
 
@@ -195,8 +195,8 @@ section {
   font-family: "Inter", sans-serif;
   font-size: 0.9rem;
 }
-.codeButtons button:last-child {
+#codeHowItWorksBtn {
   background-color: transparent;
-  color: #da2328;
+  color: #000000;
   border: 2px solid #da2328;
 }
