@@ -41,31 +41,29 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: right;
+  gap: 42.5rem;
+  margin-right: 2rem;
+  margin-top: 1rem;
 }
 
-.logo-img {
-  height: 2rem;
+.logoImg {
+  height: 5rem;
   width: auto;
-}
-
-.logo h1 {
-  font-family: var(--header-font--);
-  font-size: 1.8rem;
-  margin: 0;
-}
-
-/* Navigationsknapper */
-.howNav {
-  display: flex;
-  gap: 1rem;
 }
 
 /* icon billeder */
 #homeIcon,
 #backIcon {
-  height: 2rem;
+  height: 3rem;
   width: auto;
+}
+
+#backIcon {
+  display: flex;
+  bottom: -7rem;
+  left: -25rem;
+  position: relative;
 }
 
 /* Hovedindhold */
@@ -114,7 +112,7 @@ body {
 .Btnunderstood {
   background: none;
   color: black;
-  border: solid 0.5rem var(--secondary-color--);
+  border: solid 0.3rem var(--secondary-color--);
   padding: 0.8rem 2rem;
   font-size: 1rem;
   font-family: var(--text-font--);
