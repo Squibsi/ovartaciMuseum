@@ -30,9 +30,60 @@
 body {
     font-family: var(--header-font--);
     background: var(--primary-color--);
-    background-image: url("../img/brain-background.svg");
+    background-image: url("../../img/brain-open-background.svg");
     /* Sørger for at baggrundsbilledet kun ses 1 gang */
     background-repeat: no-repeat; 
     background-position: center;
+    color: var(--text-color--);
+    background-position-y: -10vh;
+}
+
+/* Styling til teksten på scanner siden */
+#puzzleProgressText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 3vh;
+}
+
+/* Giver lidt luft mellem overskriften og processen af hvor mange brikker man har fundet */
+#puzzleProgressText h1 {
+    margin-bottom: 2vh;
+}
+
+/* Styling til puslespilsbrikkerne */
+#puzzleProgressImg {
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling til begge knapper */
+#mainBtns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+/* Styling til scanner-knappen */
+#startScannerBtn {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    background-color: var(--btn-color--);
+    border-radius: 15px;
+    padding: 20px;
+    /* Fjerner outline fra knappen */
+    outline: none;
+    border: none;
+    color: white;
+    margin-bottom: 5vh;
+}
+
+/* Styling til "generér min kode"-knappen */
+#generateCodeBtn {
+    background: none;
+    border: none;
+    text-decoration: underline;
     color: var(--text-color--);
 }

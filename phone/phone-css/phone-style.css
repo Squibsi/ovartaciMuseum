@@ -90,8 +90,6 @@ h1 {
 #tried-before-btn {
     font-family: var(--text-font--);
     font-size: var(--font-size-base);
-    background: none;
-    border: none;
-    text-decoration: underline;
     padding-top: 40px;
+    color: var(--text-color--);
 }
