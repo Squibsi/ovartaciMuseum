@@ -1,0 +1,40 @@
+
+
+/* Variabler som kan bruges gennem CSS*/
+:root {
+    /* Farver */
+    --primary-color--: #C7D4E3;
+    --secondary-color--: #DA2328;
+    --text-color--: black;
+    --btn-color--:  #52805A;
+
+    /* Typografier */
+    --header-font--: 'Bebas Neue';
+    --text-font--: 'Inter';
+
+    /* Tekst størrelser */
+    --font-size-small:13px;
+    --font-size-base:16px;
+    --font-size-medium:18px;
+    --font-size-large:20px;
+    --font-size-xl:24px;
+    --font-size-xxl:28px;
+}
+
+/* Resetter styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling af hele siden og baggrunden */
+body {
+    font-family: var(--header-font--);
+    background: var(--primary-color--);
+    background-image: url("../../img/brain-background.svg");
+    /* Sørger for at baggrundsbilledet kun ses 1 gang */
+    background-repeat: no-repeat; 
+    background-position: center;
+    color: var(--text-color--);
+}
