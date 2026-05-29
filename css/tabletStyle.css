@@ -34,7 +34,7 @@ body {
   color: #333;
   text-align: center;
   margin: 0;
-  padding: 2rem;
+  /* padding: 2rem; */
 }
 
 /* typografi */
@@ -52,14 +52,14 @@ p {
 
 #ovartaci1 {
   color: white;
-  top: 15%;
+  top: 40%;
   font-size: 7rem;
   font-weight: lighter;
 }
 
 #ovartaci2 {
   color: red;
-  top: 14.5%;
+  top: 55%;
   font-size: 15em;
   letter-spacing: 1rem;
 }
@@ -82,11 +82,9 @@ p {
 
 /* ----- Slider container ----- */
 .slider-container {
-  width: 90%; /* Bredde – kan justeres */
-  max-width: 900px; /* Maks bredde */
-  margin: 1.5rem auto; /* Centrerer */
+  width: 100%; /* Bredde – kan justeres */
+  margin-bottom: 7rem;
   overflow: hidden; /* Skjuler det, der stikker ud */
-  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -98,11 +96,9 @@ p {
 
 /* Hvert billede fylder hele containerens bredde */
 .slide-img {
-  width: 100%; /* Billedet fylder hele containerens bredde */
-  flex-shrink: 0; /* Forhindrer at billedet krymper */
+  min-width: 100%; /* Billedet fylder hele containerens bredde */ /* Forhindrer at billedet krymper */
   display: block;
   object-fit: cover; /* Sørger for at billedet dækker pænt */
-  height: auto;
 }
 
 /* ----- KNAPPER  ----- */
