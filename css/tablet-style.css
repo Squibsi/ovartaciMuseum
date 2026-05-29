@@ -149,23 +149,23 @@ section {
 
 /* overlay content (den hvide boks) */
 .codeOverlayContent {
-  background-color: #fff;
+  background-color: var(--primary-color--);
   padding: 2rem;
-  border-radius: 30px;
+  border-radius: 2rem;
   width: 90%;
-  max-width: 400px;
+  max-width: 50rem;
   text-align: center;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "inter", sans-serif;
   position: relative;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
 }
 
 /* Luk-kryds */
 .closeBtn {
   position: absolute;
-  top: 1rem;
-  right: 20px;
-  font-size: 28px;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 4rem;
   font-weight: bold;
   cursor: pointer;
   color: var(--secondary-color--);
