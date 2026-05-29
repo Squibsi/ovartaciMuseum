@@ -43,10 +43,15 @@ body {
   align-items: center;
   justify-content: right;
   gap: 42.5rem;
-  margin-right: 2rem;
-  margin-top: 1rem;
+
+  background-color: white;
+  padding: 1rem 1rem;
 }
 
+.redLine {
+  height: 2rem;
+  background-color: var(--secondary-color--);
+}
 .logoImg {
   height: 5rem;
   width: auto;

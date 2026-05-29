@@ -21,13 +21,11 @@ function nextSlide() {
 // Start automatisk skift hvert 4. sekund
 setInterval(nextSlide, 4000);
 
-// Info-knap (bare en alert eller lignende)
+// Info-knap (fører til tutorial.html)
 const infoBtn = document.getElementById("howItWorksButton");
 if (infoBtn) {
   infoBtn.addEventListener("click", () => {
-    alert(
-      "Når du har samlet puslespilsbrikker, kan du skrive din kode og få adgang til mere indhold.",
-    );
+    window.location.href = "tutorial.html";
   });
 }
 
