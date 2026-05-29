@@ -8,8 +8,8 @@
     --btn-color--:  #52805A;
 
     /* Typografier */
-    --header-font--: 'Bebas Neue';
-    --text-font--: 'Inter';
+    --header-font--: "Bebas Neue";
+    --text-font--: "Inter", sans-serif;
 
     /* Tekst størrelser */
     --font-size-small:13px;
@@ -31,7 +31,7 @@
 body {
     font-family: var(--header-font--);
     background: var(--primary-color--);
-    background-image: url("../img/brain-background.svg");
+    background-image: url("../../img/brain-background.svg");
     /* Sørger for at baggrundsbilledet kun ses 1 gang */
     background-repeat: no-repeat; 
     background-position: center;

@@ -14,7 +14,7 @@
 
   /* Typografier */
   --header-font--: "Bebas Neue";
-  --text-font--: "Inter";
+  --text-font--: "Inter", sans-serif;
 
   /* Tekst størrelser */
   --font-size-small: 13px;

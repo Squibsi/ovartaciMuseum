@@ -1,0 +1,77 @@
+
+/* Variabler som kan bruges gennem CSS*/
+:root {
+    /* Farver */
+    --primary-color--: #C7D4E3;
+    --secondary-color--: #DA2328;
+    --text-color--: black;
+    --btn-color--:  #52805A;
+
+    /* Typografier */
+    --header-font--: "Bebas Neue";
+    --text-font--: "Inter", sans-serif;
+
+    /* Tekst størrelser */
+    --font-size-small:13px;
+    --font-size-base:16px;
+    --font-size-medium:18px;
+    --font-size-large:20px;
+    --font-size-xl:24px;
+    --font-size-xxl:28px;
+}
+
+/* Resetter styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling af hele siden og baggrunden */
+body {
+    font-family: var(--header-font--);
+    background: var(--primary-color--);
+    background-image: url("../img/brain-background.svg");
+    /* Sørger for at baggrundsbilledet kun ses 1 gang */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 20vh;
+    color: var(--text-color--);
+}
+
+/* Styling til header */
+header {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Styling til bjælken under header */
+nav {
+    background-color: var(--secondary-color--);
+    height: 5vh;
+}
+
+#screenBtns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30vh;
+}
+
+#screenBtns a {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    background-color: var(--btn-color--);
+    border-radius: 15px;
+    padding: 20px;
+    /* Fjerner outline fra knappen */
+    outline: none;
+    border: none;
+    color: white;
+    margin-bottom: 3vw;
+    text-decoration: none;
+}
