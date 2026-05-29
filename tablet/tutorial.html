@@ -12,7 +12,7 @@
     />
     <!--Fan icon-->
     <link rel="icon" href="img/fan-icon.png" type="img/icon" />
-    <link rel="stylesheet" href="../tablet/tablet-css/tablet-style.css" />
+    <link rel="stylesheet" href="../tablet/tablet-css/tutorial.css" />
     <title>Hvordan Fungere Dette | Museum Ovartaci</title>
   </head>
   <body>
@@ -20,12 +20,8 @@
     <header class="howHeader">
       <div class="logo">
         <img src="../img/logo.png" alt="Museum Ovartaci logo" class="logoImg" />
-        <h1>MUSEUM OVARTACI</h1>
+        <img src="../img/house.svg" alt="Hjem" class="navIcon" id="homeIcon" />
       </div>
-      <nav class="howNav">
-        <img src="../img/home-icon.png" alt="Hjem" class="navIcon" />
-        <img src="../img/back-icon.png" alt="Tilbage" class="navIcon" />
-      </nav>
     </header>
 
     <main class="howMain">
@@ -36,22 +32,24 @@
         Find de forskellige puslespilsbrikker rundt på museet og scan dem.
       </p>
 
-      <!-- Video-område (placeholder – du indsætter video senere) -->
-      <div class="video-container">
+      <!-- Video-område -->
+      <div class="videoContainer">
         <!-- 
-        Når du har videoen, kan du erstatte dette med en <video>- eller YouTube-indlejring.
-        Eksempel med en lokal mp4-fil:
-        <video controls width="100%">
-          <source src="video/vejledning.mp4" type="video/mp4">
-          Din browser understøtter ikke video.
-        </video>
+         Her kommer en video, der viser
       -->
-        <div class="video-placeholder">🎥 Videovejledning kommer snart</div>
+        <div class="videoPlaceholder">🎥 Videovejledning kommer snart</div>
       </div>
 
       <button id="understoodBtn" class="Btnunderstood">Forstået</button>
+
+      <img
+        src="../img/back-arrow.svg"
+        alt="Tilbage"
+        class="navIcon"
+        id="backIcon"
+      />
     </main>
 
-    <script src="js/hvordan-script.js"></script>
+    <script src="../tablet/js-tablet/tablet-tutorial.js"></script>
   </body>
 </html>

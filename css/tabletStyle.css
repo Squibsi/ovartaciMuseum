@@ -1,0 +1,202 @@
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter";
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
+
+/* generelle styles */
+body {
+  font-family:
+    Bebas Neue,
+    sans-serif;
+  background-color: #c8d4e3;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  /* padding: 2rem; */
+}
+
+/* typografi */
+
+h1,
+h2 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+}
+
+/* ----- titler ----- */
+
+#ovartaci1 {
+  color: white;
+  top: 40%;
+  font-size: 7rem;
+  font-weight: lighter;
+}
+
+#ovartaci2 {
+  color: red;
+  top: 55%;
+  font-size: 15em;
+  letter-spacing: 1rem;
+}
+
+#introText {
+  max-width: 60%;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 auto;
+}
+
+#ovartaci1,
+#ovartaci2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Bebas Neue", sans-serif;
+  z-index: 1;
+}
+
+/* ----- Slider container ----- */
+.slider-container {
+  width: 100%; /* Bredde – kan justeres */
+  margin-bottom: 7rem;
+  overflow: hidden; /* Skjuler det, der stikker ud */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Track – her ligger alle billeder på række */
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out; /* Glidende animation */
+}
+
+/* Hvert billede fylder hele containerens bredde */
+.slide-img {
+  min-width: 100%; /* Billedet fylder hele containerens bredde */ /* Forhindrer at billedet krymper */
+  display: block;
+  object-fit: cover; /* Sørger for at billedet dækker pænt */
+}
+
+/* ----- KNAPPER  ----- */
+section {
+  margin-top: 2rem;
+}
+
+#generateCodeButton {
+  background-color: #52805a;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: semi-bold;
+  border-radius: 40px;
+  transition: background 0.2s;
+}
+
+#howItWorksButton {
+  background-color: #ffffff00;
+  color: black;
+  border: solid 3px #da2328;
+  padding: 0.8rem 1.5rem;
+  margin: 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  font-weight: semi-bold;
+  border-radius: 40px;
+  transition: background 0.2s;
+}
+
+/* ----- overlay login -----*/
+
+.overlay {
+  display: none; /* Skjult som standard */
+  position: fixed; /* Bliver på plads, selvom man scroller */
+  z-index: 1000; /* Lægger oven på alt andet */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Halvgennemsigtig baggrund */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal-indhold (den hvide boks) */
+.codeOverlayContent {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Luk-kryds */
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+}
+
+/* Input-felt */
+#codeInput {
+  width: 80%;
+  padding: 12px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 40px;
+  font-family: inherit;
+}
+
+/* Knapper i modal */
+.codeButtons button {
+  background-color: #52805a;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  margin: 5px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+.codeButtons button:last-child {
+  background-color: transparent;
+  color: #da2328;
+  border: 2px solid #da2328;
+}
