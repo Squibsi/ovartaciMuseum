@@ -134,7 +134,7 @@ section {
 
 /* ----- overlay login -----*/
 
-.overlay {
+.codeOverlay {
   display: none; /* Skjult som standard */
   position: fixed; /* Bliver på plads, selvom man scroller */
   z-index: 1000; /* Lægger oven på alt andet */
@@ -147,7 +147,7 @@ section {
   align-items: center;
 }
 
-/* Modal-indhold (den hvide boks) */
+/* overlay content (den hvide boks) */
 .codeOverlayContent {
   background-color: #fff;
   padding: 2rem;
@@ -183,7 +183,7 @@ section {
   font-family: inherit;
 }
 
-/* Knapper i modal */
+/* Knapper i overlay */
 .codeButtons button {
   background-color: #52805a;
   color: white;
