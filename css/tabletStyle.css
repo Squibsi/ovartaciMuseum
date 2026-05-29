@@ -3,7 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* variabler */
+
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter";
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
 
 /* generelle styles */
 body {
@@ -18,28 +38,46 @@ body {
 }
 
 /* typografi */
-h2,
-h3 {
-  font-family:
-    Bebas Neue,
-    sans-serif;
-}
 
+h1,
 h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  margin-top: 0;
+  font-family: "Bebas Neue", sans-serif;
 }
 
 p {
-  font-size: 1.5rem;
   font-family: "Inter", sans-serif;
-  margin: 3rem 3rem;
+}
+
+/* ----- titler ----- */
+
+#ovartaci1 {
+  color: white;
+  top: 15%;
+  font-size: 7rem;
+  font-weight: lighter;
+}
+
+#ovartaci2 {
+  color: red;
+  top: 14.5%;
+  font-size: 15em;
+  letter-spacing: 1rem;
+}
+
+#introText {
+  max-width: 60%;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 auto;
+}
+
+#ovartaci1,
+#ovartaci2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Bebas Neue", sans-serif;
+  z-index: 1;
 }
 
 /* ----- Slider container ----- */
@@ -96,66 +134,4 @@ section {
   font-weight: semi-bold;
   border-radius: 40px;
   transition: background 0.2s;
-}
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #c9d6e6;
-}
-
-h1, h2 {
-  font-family: "Bebas Neue", sans-serif;
-}
-
-p {
-  font-family: "Inter", sans-serif;
-}
-
-#slideImage {
-  width: 100%;
-  height: 28rem;
-  display: block;
-  margin-bottom: 7rem;
-}
-
-#ovartaci1,
-#ovartaci2 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Bebas Neue", sans-serif;
-  z-index: 1;
-}
-
-#ovartaci1 {
-  color: white;
-  top: 15%;
-  font-size: 7rem;
-  font-weight: lighter;
-}
-
-#ovartaci2 {
-  color: red;
-  top: 14.5%;
-  font-size: 15em;
-  letter-spacing: 1rem;
-}
-
-#introText {
-  max-width: 60%;
-  text-align: center;
-  font-size: 1.25rem;
-  margin: 0 auto;
-}
-
-#buttonSection {
-  margin-top: 1.2rem;
-  margin-bottom: 5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
 }
