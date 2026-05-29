@@ -1,4 +1,26 @@
 
+/* Variabler som kan bruges gennem CSS*/
+:root {
+    /* Farver */
+    --primary-color--: #C7D4E3;
+    --secondary-color--: #DA2328;
+    --text-color--: black;
+    --btn-color--:  #52805A;
+
+    /* Typografier */
+    --header-font--: 'Bebas Neue';
+    --text-font--: 'Inter';
+
+    /* Tekst størrelser */
+    --font-size-small:13px;
+    --font-size-base:16px;
+    --font-size-medium:18px;
+    --font-size-large:20px;
+    --font-size-xl:24px;
+    --font-size-xxl:28px;
+}
+
+/* Resetter styling */
 * {
     margin: 0;
     padding: 0;
@@ -7,36 +29,64 @@
 
 
 body {
-    background: #d9d9d9;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    font-family: var(--header-font--);
+    background: var(--primary-color--);
+    background-image: url("../img/brain-background.svg");
+    /* Sørger for at baggrundsbilledet kun ses 1 gang */
+    background-repeat: no-repeat; 
+    background-position: center;
+    color: var(--text-color--);
 }
 
-
-.phone {
-    width: 390px;
-    min-height: 844px;
-    background: white;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-}
 
 header {
-    background: black;
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+nav {
+    background-color: var(--secondary-color--);
+    height: 5vh;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+#help-btn {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    width: 13%;
+    background-color: var(--btn-color--);
+    border-radius: 15px;
+    padding: 20px;
+    /* Fjerner outline fra knappen */
+    outline: none;
+    border: none;
     color: white;
-    padding: 20px;
 }
 
-
-main {
-    padding: 20px;
-}
-
-.card {
-    background: #f2f2f2;
-    padding: 20px;
-    border-radius: 16px;
+#tried-before-btn {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    background: none;
+    border: none;
+    text-decoration: underline;
+    padding-top: 40px;
 }
