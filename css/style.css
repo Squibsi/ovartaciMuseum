@@ -62,7 +62,7 @@ nav {
     margin-top: 30vh;
 }
 
-#screenBtns button {
+#screenBtns a {
     font-family: var(--text-font--);
     font-size: var(--font-size-base);
     background-color: var(--btn-color--);
@@ -73,4 +73,5 @@ nav {
     border: none;
     color: white;
     margin-bottom: 3vw;
+    text-decoration: none;
 }
