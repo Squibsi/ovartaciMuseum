@@ -131,3 +131,72 @@ section {
   border-radius: 40px;
   transition: background 0.2s;
 }
+
+/* ----- overlay login -----*/
+
+.overlay {
+  display: none; /* Skjult som standard */
+  position: fixed; /* Bliver på plads, selvom man scroller */
+  z-index: 1000; /* Lægger oven på alt andet */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Halvgennemsigtig baggrund */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal-indhold (den hvide boks) */
+.codeOverlayContent {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 30px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  font-family: "Nunito Sans", sans-serif;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Luk-kryds */
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+}
+
+/* Input-felt */
+#codeInput {
+  width: 80%;
+  padding: 12px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 40px;
+  font-family: inherit;
+}
+
+/* Knapper i modal */
+.codeButtons button {
+  background-color: #52805a;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  margin: 5px;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+.codeButtons button:last-child {
+  background-color: transparent;
+  color: #da2328;
+  border: 2px solid #da2328;
+}

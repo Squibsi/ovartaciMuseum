@@ -50,7 +50,7 @@ const codeInput = document.getElementById("codeInput");
 // Åbn modal, når der klikkes på "Skriv kode"
 if (generateBtn) {
   generateBtn.addEventListener("click", () => {
-    modal.style.display = "flex"; // Vis modal (flex centrerer boksen)
+    overlay.style.display = "flex"; // Vis modal (flex centrerer boksen)
     codeInput.value = ""; // Ryd tidligere indtastning
     codeInput.focus(); // Placer markøren i inputfeltet
   });
