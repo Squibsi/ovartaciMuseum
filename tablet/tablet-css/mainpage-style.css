@@ -1,0 +1,101 @@
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter", sans-serif;
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
+
+/* Resetter styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Styling af hele siden og baggrunden */
+body {
+  font-family: var(--header-font--);
+  background: var(--primary-color--);
+  background-image: url("../../img/brain-open-background.svg");
+  /* Sørger for at baggrundsbilledet kun ses 1 gang */
+  background-repeat: no-repeat;
+  background-position: center;
+  color: var(--text-color--);
+  background-position-y: -10vh;
+}
+
+/* Styling til teksten på scanner siden */
+#puzzleProgressText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 3vh;
+}
+
+/* Giver lidt luft mellem overskriften og processen af hvor mange brikker man har fundet */
+#puzzleProgressText h1 {
+  margin-bottom: 2vh;
+}
+
+/* Styling til alle puslespilsbrikkerne */
+#puzzleProgressImg {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Styling til de samlede puslespilsbrikker */
+#puzzleBrain {
+  position: absolute;
+  z-index: 1;
+}
+
+/* Styling til den nederste brik (gul) */
+#bottomBrainPiece {
+  /* Gør at brikken kan ligge ovenpå billedet nedenunder */
+  position: absolute;
+  width: 9.7vw;
+  z-index: 2;
+  /* Bruges til at flytte brikken på plads på skærmen */
+  transform: translate(-0.2vw, 7.9vw);
+}
+
+/* Styling til nederste venstre brik (rød) */
+#bottomLeftBrainPiece {
+  position: absolute;
+  width: 10vw;
+  z-index: 2;
+  transform: translate(-7vw, 3.2vh);
+}
+
+/* Styling til den midterste brik (grøn) */
+#middleBrainPiece {
+  position: absolute;
+  width: 9vw;
+  z-index: 2;
+  transform: translate(-0.4vw, 5vh);
+}
+
+/* Styling til begge knapper */
+#mainBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Museum Ovartaci | Din hjerne</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!--Fan icon-->
+    <link rel="icon" href="img/fan-icon.png" type="img/icon" />
+    <link rel="stylesheet" href="../tablet/tablet-css/mainpage-style.css" />
+    <title>Museum Ovartaci</title>
+  </head>
+  <body>
+    <!-- Header med logo og navigation -->
+    <header class="howHeader">
+      <div class="logo">
+        <img src="../img/logo.png" alt="Museum Ovartaci logo" class="logoImg" />
+        <img src="../img/house.svg" alt="Hjem" class="navIcon" id="homeIcon" />
+      </div>
+      <!-- Knapper -->
+      <div id="mainBtns">
+        <button id="logOutBtn">Log ud</button>
+        <button id="updateBtn">Opdatere</button>
+      </div>
+      <div class="redLine"></div>
+    </header>
+    <!-- Tekst til skærmen -->
+    <div id="puzzleProgressText">
+      <h1>
+        Velkommen <br />
+        til din samlede hjerne
+      </h1>
+      <!--her skal teksten ændre sig efterhånden som brugeren finder QR-koder-->
+      <p>0/7 fundet</p>
+    </div>
+
+    <!-- Billederne til puslespillet -->
+    <div id="puzzleProgressImg">
+      <img
+        id="puzzleBrain"
+        src="../img/hjerne-knapper-uden-brug.svg"
+        alt="hvide hjerne brikker"
+      />
+      <img
+        id="bottomBrainPiece"
+        src="../img/blank-brain1.svg"
+        alt="bund hjernebrik"
+      />
+      <img
+        id="middleBrainPiece"
+        src="../img/blank-brain2.svg"
+        alt="midterste hjernebrik"
+      />
+      <img
+        id="bottomLeftBrainPiece"
+        src="../img/blank-brain6.svg"
+        alt="venstre bund hjernebrik"
+      />
+    </div>
+  </body>
+</html>

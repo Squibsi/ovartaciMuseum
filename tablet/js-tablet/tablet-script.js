@@ -45,23 +45,23 @@ const codeAcceptBtn = document.getElementById("codeAcceptBtn");
 const codeHowItWorksBtn = document.getElementById("codeHowItWorksBtn");
 const codeInput = document.getElementById("codeInput");
 
-// Åbn modal, når der klikkes på "Skriv kode"
+// Åbn overlay, når der klikkes på "Skriv kode"
 if (generateBtn) {
   generateBtn.addEventListener("click", () => {
-    overlay.style.display = "flex"; // Vis modal (flex centrerer boksen)
+    overlay.style.display = "flex"; // Vis overlay (flex centrerer boksen)
     codeInput.value = ""; // Ryd tidligere indtastning
     codeInput.focus(); // Placer markøren i inputfeltet
   });
 }
 
-// Luk modal, når der klikkes på krydset
+// Luk overlay, når der klikkes på krydset
 if (closeBtn) {
   closeBtn.addEventListener("click", () => {
     overlay.style.display = "none";
   });
 }
 
-// Luk modal, hvis man klikker uden for den hvide boks (på den mørke baggrund)
+// Luk overlay, hvis man klikker uden for den hvide boks (på den mørke baggrund)
 window.addEventListener("click", (event) => {
   if (event.target === overlay) {
     overlay.style.display = "none";
@@ -84,11 +84,9 @@ if (codeAcceptBtn) {
   });
 }
 
-// Hvordan fungere dette? (inde i overlay)
+// Hvordan fungere dette? (inde i overlay) fører til siden tutorial.html
 if (codeHowItWorksBtn) {
   codeHowItWorksBtn.addEventListener("click", () => {
-    alert(
-      "Få en kode på din mobil, når du har samlet puslespilsbrikker. Indtast den her.",
-    );
+    window.location.href = "tutorial.html";
   });
 }
