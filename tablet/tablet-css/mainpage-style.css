@@ -38,7 +38,65 @@ body {
   background-position-y: -10vh;
 }
 
-/* Styling til teksten på scanner siden */
+/* styling af header */
+.navigationHeader {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 1rem 2rem;
+}
+
+/* logo */
+.logo {
+  margin: 0 19rem 0 45rem; /* centrerer logoet oh er ligenu også gap mellem knapper og logo*/
+}
+.logoImg {
+  height: 5rem;
+  width: auto;
+}
+
+/* navigation */
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+/* icon hjem */
+#homeIcon {
+  height: 3rem;
+  width: auto;
+}
+
+/*knapper */
+.mainBtns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#logOutBtn,
+#updateBtn {
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.5rem;
+  font-family: var(--text-font--);
+  border-radius: 2rem;
+  margin-top: 1rem;
+}
+#logOutBtn {
+  background-color: var(--secondary-color--);
+}
+#updateBtn {
+  background-color: var(--btn-color--);
+}
+.redLine {
+  height: 2rem;
+  background-color: var(--secondary-color--);
+}
+
+/* Styling til teksten på siden */
 #puzzleProgressText {
   display: flex;
   flex-direction: column;
@@ -90,12 +148,4 @@ body {
   width: 9vw;
   z-index: 2;
   transform: translate(-0.4vw, 5vh);
-}
-
-/* Styling til begge knapper */
-#mainBtns {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
 }
