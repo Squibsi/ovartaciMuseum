@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter", sans-serif;
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
+
+/* her får body et billede som baggrund*/
+body {
+  background-image: url("../../img/collage1.png"); /* sti til dit billede */
+  background-size: cover; /* Billedet dækker hele skærmen uden at blive strukket */
+  background-position: center; /* Centrerer billedet */
+  background-repeat: no-repeat; /* Billedet gentages ikke */
+  min-height: 100vh; /* så billede fylder hele skærmhøjden */
+}
+
+/* iconer */
+#homeIcon,
+#backIcon {
+  height: 3rem;
+  width: auto;
+}
+
+#backIcon {
+  display: flex;
+  bottom: -45rem;
+  left: 2rem;
+  position: relative;
+}
+
+#homeIcon {
+  display: flex;
+  top: 2rem;
+  left: 100rem;
+  position: relative;
+}
