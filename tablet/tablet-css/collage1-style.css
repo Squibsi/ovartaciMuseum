@@ -54,3 +54,15 @@ body {
   left: 100rem;
   position: relative;
 }
+
+/* billede container hitboks */
+.figureDiv {
+  width: 25rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.figureImg {
+}
