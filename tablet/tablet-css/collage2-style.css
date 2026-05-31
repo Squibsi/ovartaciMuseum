@@ -39,6 +39,7 @@ body {
 #backIcon {
   height: 3rem;
   width: auto;
+  z-index: 4;
 }
 
 #backIcon {
