@@ -53,15 +53,15 @@ function updatePuzzle() {
       // Du skal kende de oprindelige blanke stier. Her en simpel måde:
       if (brainId === "1") brainPiece.src = "../img/blank-brain1.svg";
       else if (brainId === "2") brainPiece.src = "../img/blank-brain2.svg";
-      else if (brainId === "3") brainPiece.src = "../img/blank-brain6.svg";
+      else if (brainId === "3") brainPiece.src = "../img/blank-brain3.svg";
       if (brainPiece.src !== blankPath) {
         brainPiece.src = blankPath;
       }
       // Fjern klik-funktionalitet
       brainPiece.style.cursor = "default";
-      if (brainPiece.clickHandler) {
-        brainPiece.removeEventListener("click", brainPiece.clickHandler);
-        delete brainPiece.clickHandler; // sletter den gemte funktion
+      if (brainPiece.clickDealer) {
+        brainPiece.removeEventListener("click", brainPiece.clickDealer);
+        delete brainPiece.clickDealer; // sletter den gemte funktion
       }
     }
   });
