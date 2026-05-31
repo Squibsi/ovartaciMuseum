@@ -37,19 +37,37 @@ function updatePuzzle() {
         brainPiece.classList.add("ny");
         setTimeout(() => brainPiece.classList.remove("ny"), 500);
       }
+      // Gør den klikbar
+      brainPiece.style.cursor = "pointer";
+      // Hvis der ikke allerede er en click-event, tilføj en
+      if (!brainPiece.clickDealer) {
+        const dealer = () => {
+          window.location.href = `collage.html?brik=${brainId}`;
+        };
+        brainPiece.addEventListener("click", dealer);
+        brainPiece.clickDealer = dealer; // gemmer funktionen
+      }
     } else {
       // Sæt blankt billede tilbage (hvis en brik fjernes ved logout)
-      const blankPath = `../img/blank-${brainId}.svg`; // eller brug de oprindelige stier
+      let blankPath = `../img/blank-${brainId}.svg`; // eller brug de oprindelige stier
       // Du skal kende de oprindelige blanke stier. Her en simpel måde:
       if (brainId === "1") brainPiece.src = "../img/blank-brain1.svg";
-      if (brainId === "2") brainPiece.src = "../img/blank-brain2.svg";
-      if (brainId === "3") brainPiece.src = "../img/blank-brain6.svg";
+      else if (brainId === "2") brainPiece.src = "../img/blank-brain2.svg";
+      else if (brainId === "3") brainPiece.src = "../img/blank-brain6.svg";
+      if (brainPiece.src !== blankPath) {
+        brainPiece.src = blankPath;
+      }
+      // Fjern klik-funktionalitet
+      brainPiece.style.cursor = "default";
+      if (brainPiece.clickHandler) {
+        brainPiece.removeEventListener("click", brainPiece.clickHandler);
+        delete brainPiece.clickHandler; // sletter den gemte funktion
+      }
     }
   });
 
   // Opdater tællertekst med antal fundne puslespilsbrikker
-  const amountFound = found.length;
-  tekstParagraf.innerText = `${amountFound}/${total} fundet`;
+  tekstParagraf.innerText = `${found.length}/${total} fundet`;
 }
 
 // ----- Tilføj en ny brik (kaldes når QR kode scannes) -----
