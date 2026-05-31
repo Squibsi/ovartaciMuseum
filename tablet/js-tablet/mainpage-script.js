@@ -42,7 +42,7 @@ function updatePuzzle() {
       // Hvis der ikke allerede er en click-event, tilføj en
       if (!brainPiece.clickDealer) {
         const dealer = () => {
-          window.location.href = `collage.html?brik=${brainId}`;
+          window.location.href = `collage${brainId}.html`;
         };
         brainPiece.addEventListener("click", dealer);
         brainPiece.clickDealer = dealer; // gemmer funktionen
