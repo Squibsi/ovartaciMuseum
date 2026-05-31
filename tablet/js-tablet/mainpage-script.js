@@ -1,7 +1,5 @@
 "use strict";
 
-"use strict";
-
 // ----- Hent DOM-elementer -----
 const brainPieces = document.querySelectorAll(".brainPiece");
 const tekstParagraf = document.querySelector("#puzzleProgressText p"); // tager fat i teksten  der viser hvor mange brikker der er.
@@ -27,43 +25,43 @@ function updatePuzzle() {
   const found = getFoundPieces();
   const total = brainPieces.length; // = 3
 
-  // Opdater hvert slot: hvis brik-id er fundet, skift til farvet billede
+  // Opdater hvert tomme brainPiece: hvis brik-id er fundet, skift til farvet billede
   brainPieces.forEach((brainPiece) => {
-    const pieceId = brainPiece.getAttribute("data-piece-id");
-    if (found.includes(pieceId)) {
+    const brainId = brainPiece.getAttribute("data-brain-id");
+    if (found.includes(brainId)) {
       // Skift til farvet version (antaget filnavn: farvet-brik1.png, farvet-brik2.png...)
-      const farvetSti = `../img/farvet-${pieceId}.png`;
-      if (brainPiece.src !== farvetSti) {
-        brainPiece.src = farvetSti;
+      const colorPath = `../img/filled-brain${brainId}.svg`; // gør den farvet
+      if (brainPiece.src !== colorPath) {
+        brainPiece.src = colorPath;
         // Tilføj fade-klasse (hvis du har CSS)
         brainPiece.classList.add("ny");
         setTimeout(() => brainPiece.classList.remove("ny"), 500);
       }
     } else {
       // Sæt blankt billede tilbage (hvis en brik fjernes ved logout)
-      const blankSti = `../img/blank-${pieceId}.png`; // eller brug de oprindelige stier
+      const blankPath = `../img/blank-${brainId}.svg`; // eller brug de oprindelige stier
       // Du skal kende de oprindelige blanke stier. Her en simpel måde:
-      if (pieceId === "piece1") brainPiece.src = "../img/blank-brain1.svg";
-      if (pieceId === "piece2") brainPiece.src = "../img/blank-brain2.svg";
-      if (pieceId === "piece3") brainPiece.src = "../img/blank-brain6.svg";
+      if (brainId === "1") brainPiece.src = "../img/blank-brain1.svg";
+      if (brainId === "2") brainPiece.src = "../img/blank-brain2.svg";
+      if (brainId === "3") brainPiece.src = "../img/blank-brain6.svg";
     }
   });
 
-  // Opdater tællertekst
+  // Opdater tællertekst med antal fundne puslespilsbrikker
   const amountFound = found.length;
   tekstParagraf.innerText = `${amountFound}/${total} fundet`;
 }
 
 // ----- Tilføj en ny brik (kaldes når QR kode scannes) -----
-function addPiece(pieceId) {
+function addPiece(brainId) {
   let found = getFoundPieces();
-  if (!found.includes(pieceId)) {
-    found.push(pieceId);
+  if (!found.includes(brainId)) {
+    found.push(brainId);
     saveFoundPieces(found);
     updatePuzzle();
-    console.log(`Brik ${pieceId} tilføjet!`);
+    console.log(`Brik ${brainId} tilføjet!`);
   } else {
-    console.log(`Brik ${pieceId} allerede fundet.`);
+    console.log(`Brik ${brainId} allerede fundet.`);
   }
 }
 
