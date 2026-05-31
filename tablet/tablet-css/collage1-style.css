@@ -54,3 +54,59 @@ body {
   left: 100rem;
   position: relative;
 }
+
+/* billede container hitboks */
+.figureDiv {
+  width: 25rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* billede i div container */
+.figureImg {
+  max-width: 90%; /* hvis billedet er for stort i forhold til containeren, skaleres det ned, men beholder sine proportioner */
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+#figure1Hitboks {
+  position: relative;
+}
+
+#figure2Hitboks {
+  position: relative;
+  width: 100vw;
+}
+
+#figure3Hitboks {
+  position: relative;
+  width: 150vw;
+  bottom: 90vh;
+}
+
+.figureImg {
+  animation: tilting 3s infinite; /* looper uendeligt */
+}
+
+/* --------------------------------------------------------------------------------------------------------
+Animation 
+-------------------------------------------------------------------------------------------------------- */
+
+/* denne animation får figurerne til at bevæge sig */
+@keyframes tilting {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  } /* vipper til den ene side */
+  75% {
+    transform: rotate(-4deg);
+  } /* vipper til den anden side */
+  100% {
+    transform: rotate(0deg);
+  }
+}
