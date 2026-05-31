@@ -17,6 +17,7 @@ const startScanBtn = document.getElementById("startScannerBtn");
 
 let scanner;
 let scanned = false;
+let scanning = false;
 
 startScanBtn.addEventListener("click", startScanner);
 
@@ -29,7 +30,7 @@ function startScanner() {
 
     scanner.start(
         
-        {facingMode: "environment"},
+        { facingMode: "environment" },
 
         {
             fps: 10,
