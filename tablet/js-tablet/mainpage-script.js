@@ -49,7 +49,7 @@ function updatePuzzle() {
       }
     } else {
       // Sæt blankt billede tilbage (hvis en brik fjernes ved logout)
-      let blankPath = `../img/blank-${brainId}.svg`; // eller brug de oprindelige stier
+      let blankPath = `../img/blank-brain${brainId}.svg`; // eller brug de oprindelige stier
       // Du skal kende de oprindelige blanke stier. Her en simpel måde:
       if (brainId === "1") brainPiece.src = "../img/blank-brain1.svg";
       else if (brainId === "2") brainPiece.src = "../img/blank-brain2.svg";
