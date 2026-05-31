@@ -16,6 +16,8 @@
     <title>Scanner</title>
 </head>
 <body>
+    <!-- "Hjemmeskærm" -->
+     <section id="homeScreen">
     <!-- Tekst til skærmen -->
     <div id="puzzleProgressText">
         <h1>Find QR-koderne <br> i museets områder</h1>
@@ -35,19 +37,19 @@
         <button id="startScannerBtn">Start scanner</button>
         <button id="generateCodeBtn">Generér min kode</button>
     </div>
+</section>
+
 
     <!-- QR-scanner -->
-     <div id="reader"></div>
+     <div id="scannerScreen">
+        <div id="reader"></div>
+     </div>
+     
 
     <div id="popUp">
         <p id="popUpText"></p>
-        <button onclick="closePopup()">OK</button>
+        <button onclick="closePopUp()">OK</button>
     </div>
-
-
-
-
-
 
 
      <script src="phone-js/phone-scanner.js"></script>
