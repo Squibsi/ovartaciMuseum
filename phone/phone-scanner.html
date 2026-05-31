@@ -11,6 +11,8 @@
     <!--Fan icon-->
      <link rel="icon" href="img/fanIcon.png" type="img/icon">
      <link rel="stylesheet" href="../css/phoneStyle.css">
+     <!-- QR-scanner -->
+      <script src="https://unpkg.com/html5-qrcode"></script>
     <title>Scanner</title>
 </head>
 <body>
@@ -33,5 +35,21 @@
         <button id="startScannerBtn">Start scanner</button>
         <button id="generateCodeBtn">Generér min kode</button>
     </div>
+
+    <!-- QR-scanner -->
+     <div id="reader"></div>
+
+    <div id="popUp">
+        <p id="popUpText"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+
+
+
+
+
+
+     <script src="phone-js/phone-scanner.js"></script>
 </body>
 </html>

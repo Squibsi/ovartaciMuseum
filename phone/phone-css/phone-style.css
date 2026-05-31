@@ -98,8 +98,9 @@ h1 {
     color: var(--text-color--);
 }
 
-
-
+.onboarding {
+    display: none;
+}
 
 
 /* --------ANIMATION-------- */
