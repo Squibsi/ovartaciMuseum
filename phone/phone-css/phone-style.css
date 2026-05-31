@@ -36,6 +36,10 @@ body {
     background-repeat: no-repeat; 
     background-position: center;
     color: var(--text-color--);
+    
+    /* Til fade-out animation */
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 /* Styling til header */
@@ -92,4 +96,15 @@ h1 {
     font-size: var(--font-size-base);
     padding-top: 40px;
     color: var(--text-color--);
+}
+
+
+
+
+
+/* --------ANIMATION-------- */
+
+/* Body fade-out animation */
+body.fade-out {
+    opacity: 0;
 }

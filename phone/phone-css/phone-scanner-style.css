@@ -36,6 +36,10 @@ body {
     background-position: center;
     color: var(--text-color--);
     background-position-y: -10vh;
+
+    /* Til fade-in animation */
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
 }
 
 /* Styling til teksten på scanner siden */
@@ -120,4 +124,19 @@ body {
     border: none;
     text-decoration: underline;
     color: var(--text-color--);
+}
+
+
+
+
+/* -------ANIMATION------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
