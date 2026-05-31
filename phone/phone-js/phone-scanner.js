@@ -1,14 +1,11 @@
 "use strict";
 
 // Puslespilsbrikker
-
 const puzzleData = {
     puzzle1: "Du fandt brik 1!",
     puzzle2: "Du fandt brik 2!",
     puzzle3: "Du fandt brik 3"
 };
-
-
 
 
 // -------QR-SCANNER-------
@@ -19,7 +16,11 @@ let scanner;
 let scanned = false;
 let scanning = false;
 
-startScanBtn.addEventListener("click", startScanner);
+startScanBtn.addEventListener("click", () => {
+    document.getElementById("homeScreen").style.display = "none";
+    document.getElementById("scannerScreen").style.display = "block";
+    startScanner();
+});
 
 function startScanner() {
 
@@ -71,4 +72,6 @@ function handlePuzzle(id) {
 
 function closePopUp() {
     document.getElementById("popUp").style.display = "none";
+    document.getElementById("homeScreen").style.display = "block";
+    document.getElementById("scannerScreen").style.display = "none";
 }
