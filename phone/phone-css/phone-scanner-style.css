@@ -130,7 +130,13 @@ body {
     margin-bottom: 5vh;
 }
 
-
+/* Styling til "reset"-knappen */
+#resetBtn {
+    transform: translate(60vw, -100vh);
+    width: 3vw;
+    z-index: 20;
+    position: absolute;
+}
 
 
 /* -------ANIMATION------- */
