@@ -39,6 +39,7 @@
     </div>
     <!-- Reset knap -->
     <img id="resetBtn" src="../img/reset-knap.svg" alt="reset knap">
+    <p id="museumCodeOutput"></p>
 </section>
 
 
@@ -53,6 +54,16 @@
         <button id="findMoreBtn" onclick="closePopUp()">Find flere</button>
     </div>
 
+
+    <!-- Pop op til personlig kode -->
+     <div id="codePopUp">
+        <div id="codePopUpContent">
+            <h2>Indtast din kode på tabletten</h2>
+            <p>Din kode:</p>
+            <p id="museumCodeText"></p>
+            <button id="closeCodePopUp">Tilbage</button>
+        </div>
+     </div>
 
      <script src="phone-js/phone-scanner.js"></script>
 </body>

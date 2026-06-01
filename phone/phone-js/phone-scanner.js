@@ -158,7 +158,7 @@ function resetPuzzle(){
 
 resetBtn.addEventListener("click", ()=>{
     resetPuzzle();
-    console.log("reset clicked");
+   
 });
 
 
@@ -198,4 +198,45 @@ function closePopUp() {
     document.getElementById("homeScreen").style.display = "block";
     // Skjuler scanner-skærmen
     document.getElementById("scannerScreen").style.display = "none";
+}
+
+
+// Generering af museumskoden
+function generateMuseumCode() {
+    const found = getFoundPieces();
+
+    if(found.length === 0) {
+        return null;
+    }
+
+    found.sort();
+
+    return found.join("-");
+}
+
+const generateCodeBtn = document.getElementById("generateCodeBtn");
+
+if(generateCodeBtn) {
+    generateCodeBtn.addEventListener("click", ()=>{
+
+        const code = generateMuseumCode();
+
+        if(!code){
+            alert("Du har ikke fundet nogen brikker endnu");
+            return;
+        }
+
+        document.getElementById("museumCodeText").textContent = code;
+        document.getElementById("codePopUp").style.display = "flex";
+        document.getElementById("resetBtn").style.display = "none";
+    });
+}
+
+const closeCodePopUpBtn = document.getElementById("closeCodePopUp");
+
+if(closeCodePopUpBtn) {
+    closeCodePopUpBtn.addEventListener("click", () => {
+        document.getElementById("codePopUp").style.display = "none";
+        document.getElementById("resetBtn").style.display = "block";
+    });
 }

@@ -227,3 +227,49 @@ body {
     margin: 10vh auto 0 auto;
     display: block
 }
+
+
+/* Styling til kode pop-up */
+
+#codePopUp {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color--);
+    background-image: url("../../img/brain-background.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    z-index: 998;
+}
+
+#codePopUpContent {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    max-width: 350px;
+}
+
+#museumCodeText {
+    font-family: var(--text-font--);
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#closeCodePopUp {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    background-color: var(--secondary-color--);
+    border-radius: 15px;
+    padding: 20px;
+    /* Fjerner outline fra knappen */
+    outline: none;
+    border: none;
+    margin-bottom: 5vh;
+}
