@@ -90,12 +90,95 @@ body {
 }
 
 .figureImg {
-  animation: tilting 3s infinite; /* looper uendeligt */
+  animation:
+    zoomInd 0.4s ease-out forwards 2.7s,
+    tilting 3s infinite 3.1s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
+}
+/* --------------------------------------------------------------------------------------------------------
+overgangs animation
+-------------------------------------------------------------------------------------------------------- */
+
+#revealLayerCut1 {
+  z-index: 4;
+}
+
+#revealLayerCut2 {
+  z-index: 5;
+}
+
+#revealLayerCut1 {
+  z-index: 6;
 }
 
 /* --------------------------------------------------------------------------------------------------------
-Animation 
+Animation - overgangs animation
 -------------------------------------------------------------------------------------------------------- */
+/* Reveal-lag – dækker hele skærmen */
+.reveal-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* så klik kan gå igennem til figurerne */
+  overflow: hidden;
+}
+.reveal-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Cut-lag – starter usynlige, zoomer ind og bliver synlige */
+.cut-layer {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomForward 1.5s ease-out forwards;
+}
+/* Forskellig forsinkelse på hvert lag */
+#revealLayerCut1 {
+  animation-delay: 0.2s;
+}
+#revealLayerCut2 {
+  animation-delay: 0.7s;
+}
+#revealLayerCut3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes zoomForward {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2); /* forstørrer så hullerne bliver større */
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+  }
+}
+/* --------------------------------------------------------------------------------------------------------
+Animation - figurer animation
+-------------------------------------------------------------------------------------------------------- */
+/* Zoom-ind animation (kører kun én gang) */
+@keyframes zoomInd {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* denne animation får figurerne til at bevæge sig */
 @keyframes tilting {

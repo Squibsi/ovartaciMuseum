@@ -39,13 +39,13 @@ function updatePuzzle() {
       }
       // Gør den klikbar
       brainPiece.style.cursor = "pointer";
-      // Hvis der ikke allerede er en click-event, tilføj en
+      // clickDealer fører til korrekt collage side
       if (!brainPiece.clickDealer) {
         const dealer = () => {
           window.location.href = `collage${brainId}.html`;
         };
         brainPiece.addEventListener("click", dealer);
-        brainPiece.clickDealer = dealer; // gemmer funktionen
+        brainPiece.clickDealer = dealer;
       }
     } else {
       // Sæt blankt billede tilbage (hvis en brik fjernes ved logout)

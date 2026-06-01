@@ -35,7 +35,7 @@ startScanBtn.addEventListener("click", () => {
     // Kalder på startScanner funktionen længere nede, og starter QR-kode-scanneren
     startScanner();
 });
-
+ 
 function startScanner() {
 
     // Tjekker om scanning = true. 
@@ -79,10 +79,88 @@ function onScanSuccess(decodedText) {
         scanning = false;
     });
 
+    const brainId = decodedText.replace("puzzle", "");
+
+    addPiece(brainId);
+
+    renderPuzzle();
     // Håndterer den funde QR-kode
     // Det vil sige at der f.eks. vil stå "handlePuzzle(puzzle1)" hvis det er den der er scannet
     handlePuzzle(decodedText);
 }
+
+// Funktion til localStorage
+function getFoundPieces() {
+    const saved = localStorage.getItem("FoundPieces");
+
+    if(saved) {
+        return JSON.parse(saved);
+    }
+
+    return [];
+}
+
+// Gemmer brikkerne
+function saveFoundPieces(pieces) {
+    localStorage.setItem("FoundPieces", JSON.stringify(pieces));
+}
+
+// Tilføjer brikken
+function addPiece(brainId) {
+    let found = getFoundPieces();
+
+    if(!found.includes(brainId)) {
+        found.push(brainId);
+        saveFoundPieces(found);
+        console.log(`Brik ${brainId} gemt`)
+    }
+}
+
+function renderPuzzle() {
+    const found = getFoundPieces();
+
+    if(found.includes("1")) {
+        document.getElementById("bottomBrainPiece").src="../img/filled-brain1.svg";
+    } else {
+        document.getElementById("bottomBrainPiece").src="../img/blank-brain1.svg";
+    }
+
+    if(found.includes("2")) {
+        document.getElementById("middleBrainPiece").src="../img/filled-brain2.svg";
+    } else {
+        document.getElementById("middleBrainPiece").src="../img/blank-brain2.svg";
+    }
+
+    if(found.includes("3")) {
+        document.getElementById("bottomLeftBrainPiece").src= "../img/filled-brain3.svg";
+    } else {
+        document.getElementById("bottomLeftBrainPiece").src= "../img/blank-brain3.svg";
+    }
+
+    const progressText = document.querySelector("#puzzleProgressText p");
+    if(progressText) {
+        progressText.textContent = `${found.length}/7 fundet`
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderPuzzle();
+});
+
+
+// Reset puslespilet
+const resetBtn = document.getElementById("resetBtn");
+
+function resetPuzzle(){
+    localStorage.removeItem("FoundPieces");
+    renderPuzzle();// vigtig
+}
+
+resetBtn.addEventListener("click", ()=>{
+    resetPuzzle();
+    console.log("reset clicked");
+});
+
 
 
 
