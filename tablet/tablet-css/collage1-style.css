@@ -1,0 +1,249 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter", sans-serif;
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
+
+/* her får body et billede som baggrund*/
+body {
+  background-color: var(--primary-color--);
+  min-height: 100vh;
+}
+
+.backgroundImg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* så billedet ligger bag alt andet */
+  object-fit: contain; /* Hele billedet synligt */
+}
+
+/* iconer */
+#homeIcon,
+#backIcon {
+  height: 3rem;
+  width: auto;
+  z-index: 6;
+}
+
+#backIcon {
+  display: flex;
+  bottom: -45rem;
+  left: 2rem;
+  position: relative;
+}
+
+#homeIcon {
+  display: flex;
+  top: 2rem;
+  left: 100rem;
+  position: relative;
+}
+
+/* billede container hitboks */
+.figureDiv {
+  width: 25rem;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* billede i div container */
+.figureImg {
+  max-width: 90%; /* hvis billedet er for stort i forhold til containeren, skaleres det ned, men beholder sine proportioner */
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+#figure1Hitboks {
+  position: relative;
+  z-index: 5;
+}
+
+#figure2Hitboks {
+  position: relative;
+  width: 100vw;
+  z-index: 4;
+}
+
+#figure3Hitboks {
+  position: relative;
+  width: 150vw;
+  bottom: 90vh;
+  z-index: 3;
+}
+
+.figureImg {
+  animation: tilting 3s infinite 3.1s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
+}
+/* --------------------------------------------------------------------------------------------------------
+overgangs animation
+-------------------------------------------------------------------------------------------------------- */
+
+#revealLayerCut1 {
+  z-index: 9;
+}
+
+#revealLayerCut2 {
+  z-index: 8;
+}
+
+#revealLayerCut3 {
+  z-index: 7;
+}
+
+/* --------------------------------------------------------------------------------------------------------
+Animation - overgangs animation
+-------------------------------------------------------------------------------------------------------- */
+/* Reveal-lag – dækker hele skærmen */
+.reveal-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* så klik kan gå igennem til figurerne */
+  overflow: hidden;
+}
+.reveal-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Cut-lag – starter usynlige, zoomer ind og bliver synlige */
+.cut-layer {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomForward 1.5s ease-out forwards;
+}
+/* Forskellig forsinkelse på hvert lag */
+#revealLayerCut1 {
+  animation-delay: 0.2s;
+}
+#revealLayerCut2 {
+  animation-delay: 0.7s;
+}
+#revealLayerCut3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes zoomForward {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(2); /* forstørrer så hullerne bliver større */
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------------
+Animation - figurer animation
+-------------------------------------------------------------------------------------------------------- */
+
+/* denne animation får figurerne til at bevæge sig */
+@keyframes tilting {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  } /* vipper til den ene side */
+  75% {
+    transform: rotate(-4deg);
+  } /* vipper til den anden side */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------------
+Overlay
+-------------------------------------------------------------------------------------------------------- */
+
+.hiddenOverlay {
+  display: none; /* Skjult som standard */
+  position: fixed; /* Bliver på plads, selvom man scroller */
+  z-index: 1000; /* Lægger oven på alt andet */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Halvgennemsigtig baggrund */
+  justify-content: center;
+  align-items: center;
+}
+
+/* overlay content (den hvide boks) */
+.hiddenOverlayContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--primary-color--);
+  padding: 2rem;
+  border-radius: 2rem;
+  width: 90%;
+  max-width: 50rem;
+  text-align: center;
+  font-family: "inter", sans-serif;
+  position: relative;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+/* Luk-kryds */
+.closeBtn {
+  position: absolute;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 4rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--secondary-color--);
+}
+
+.overlayText p {
+  text-align: left;
+  font-size: var(--font-size-base);
+  margin-left: 2rem;
+  font-family: var(--text-font--);
+}
+
+.overlayText h2 {
+  text-align: left;
+  font-size: var(--font-size-large);
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--header-font--);
+}
+
+.overlayText {
+  padding: 2rem;
+}
