@@ -52,14 +52,14 @@ p {
 
 #ovartaci1 {
   color: white;
-  top: 18rem;
+  top: 14rem;
   font-size: 7rem;
   font-weight: lighter;
 }
 
 #ovartaci2 {
   color: red;
-  top: 24.4rem;
+  top: 18rem;
   font-size: 15em;
   letter-spacing: 1rem;
 }
@@ -80,10 +80,16 @@ p {
   z-index: 1;
 }
 
+/* ----- tekst ----- */
+p {
+  position: relative;
+  bottom: 3rem;
+}
+
 /* ----- Slider container ----- */
 .slider-container {
   width: 100%; /* Bredde – kan justeres */
-  margin-bottom: 7rem;
+  margin-bottom: 10rem;
   overflow: hidden; /* Skjuler det, der stikker ud */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -102,8 +108,9 @@ p {
 }
 
 /* ----- KNAPPER  ----- */
-section {
-  margin-top: 2rem;
+.buttonContainer {
+  position: relative;
+  bottom: 2rem;
 }
 
 #generateCodeButton {
@@ -191,7 +198,6 @@ section {
   padding: 8px 20px;
   margin: 5px;
   border-radius: 40px;
-  cursor: pointer;
   font-family: "Inter", sans-serif;
   font-size: 0.9rem;
 }
