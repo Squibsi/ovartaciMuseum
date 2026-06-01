@@ -39,13 +39,36 @@ function updatePuzzle() {
       }
       // Gør den klikbar
       brainPiece.style.cursor = "pointer";
-      // Hvis der ikke allerede er en click-event, tilføj en
+      // clickDealer starter animation og til korrekt collage side
       if (!brainPiece.clickDealer) {
         const dealer = () => {
-          window.location.href = `collage${brainId}.html`;
+          // Forhindr at der kan klikkes flere gange under animationen
+          if (brainPiece.classList.contains("zoom-animation")) return;
+
+          // Tilføj CSS-animationsklassen
+          brainPiece.classList.add("zoom-animation");
+
+          // Lyt efter når animationen er færdig
+          const onAnimationEnd = () => {
+            brainPiece.classList.remove("zoom-animation");
+            brainPiece.removeEventListener("transitionend", onAnimationEnd);
+            // Skift side efter animationen
+            window.location.href = `collage${brainId}.html`;
+          };
+          brainPiece.addEventListener("animationend", onAnimationEnd, {
+            once: true,
+          });
+
+          // Sikkerhed: Hvis animationen af en eller anden grund ikke udløses, skift alligevel efter 0,4 sek.
+          setTimeout(() => {
+            if (brainPiece.classList.contains("zoom-animation")) {
+              brainPiece.classList.remove("zoom-animation");
+              window.location.href = `collage${brainId}.html`;
+            }
+          }, 400);
         };
         brainPiece.addEventListener("click", dealer);
-        brainPiece.clickDealer = dealer; // gemmer funktionen
+        brainPiece.clickDealer = dealer;
       }
     } else {
       // Sæt blankt billede tilbage (hvis en brik fjernes ved logout)
