@@ -169,20 +169,3 @@ Animation
     opacity: 1;
   }
 }
-
-/* overgangs animation mellem siden mainpage og collage siderne */
-.zoom-animation {
-  animation: zoomOut 0.3s ease forwards;
-}
-/* forward er vigtigt for at elementer beholder deres endelige form til sidst */
-
-@keyframes zoomOut {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(5);
-    opacity: 0;
-  }
-}
