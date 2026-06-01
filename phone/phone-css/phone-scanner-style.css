@@ -224,7 +224,6 @@ body {
     outline: none;
     border: none;
     color: white;
-    margin-top: 10vh;
-    display: flex;
-    justify-self: center;
+    margin: 10vh auto 0 auto;
+    display: block
 }
