@@ -77,7 +77,7 @@ h1 {
 
 
 /* Styling kun til "hjælp mig i gang" knap */
-#help-btn {
+#helpBtn {
     font-family: var(--text-font--);
     font-size: var(--font-size-base);
     width: 14%;

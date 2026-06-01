@@ -64,7 +64,7 @@ function renderSteps() {
 }
 
 nextBtn.addEventListener("click", () => {
-    if (currentStep < steps.length - 1) {
+    if (currentStep < instructions.length - 1) {
         currentStep++;
         renderSteps();
     } else {
