@@ -3,9 +3,18 @@
 // Puslespilsbrikker
 // puzzle1, puzzle2 osv bruges til at lave qr-koderne.
 const puzzleData = {
-    puzzle1: "Du fandt brik 1!",
-    puzzle2: "Du fandt brik 2!",
-    puzzle3: "Du fandt brik 3"
+    puzzle1: `Scanning gennemført! <br> Du har fundet: 
+            <br> 
+            <h2>Brik 1!</h2> <br>
+            <img src="../img/filled-brain1.svg" alt="identitetbrik">`,
+
+    puzzle2: `Scanning gennemført! <br> Du har fundet: 
+            <br> <h2>Brik 2!</h2> <br>
+            <img src="../img/filled-brain2.svg" alt="fantasi, drømme og visioner brik">`,
+
+    puzzle3: `Scanning gennemført! <br> Du har fundet: 
+            <br> <h2>Brik 3!</h2> <br>
+            <img src="../img/filled-brain3.svg" alt="normalitet brik">`
 };
 
 
@@ -95,7 +104,7 @@ function handlePuzzle(id) {
         return;
     }
     // Hvis qr-koden matcher et id i puzzleData fortsætter funktionen og viser teksten fra popUp i HTML
-    document.getElementById("popUpText").textContent = text;
+    document.getElementById("popUpText").innerHTML = text;
     // Viser pop-op vinduet
     document.getElementById("popUp").style.display = "block";
 }

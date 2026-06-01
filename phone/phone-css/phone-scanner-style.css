@@ -120,10 +120,14 @@ body {
 
 /* Styling til "generér min kode"-knappen */
 #generateCodeBtn {
+    font-weight: bold;
+    font-family: var(--text-font--);
     background: none;
-    border: none;
-    text-decoration: underline;
+    border: solid var(--btn-color--);
     color: var(--text-color--);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 5vh;
 }
 
 
@@ -158,15 +162,41 @@ body {
 #popUp {
     display: none;
     position: fixed;
-    top: 30%;
-    left: 50%;
+    top: 30vh;
+    left: 50vw;
     transform: translateX(-50%);
-    background: white;
+    background: var(--primary-color--);
     padding: 20px;
-    border: 2px solid black;
+    border: solid 5px white;
+    border-radius: 15px;
     z-index: 999;
+}
+
+#popUpText {
+    text-align: center;
+    font-family: var(--text-font--);
+}
+
+#popUpText h2 {
+    font-family: var(--header-font--);
 }
 
 #scannerScreen {
     display: none;
+}
+
+
+#findMoreBtn {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    background-color: var(--secondary-color--);
+    border-radius: 15px;
+    padding: 20px;
+    /* Fjerner outline fra knappen */
+    outline: none;
+    border: none;
+    color: white;
+    margin-top: 10vh;
+    display: flex;
+    justify-self: center;
 }
