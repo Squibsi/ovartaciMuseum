@@ -9,11 +9,11 @@ const puzzleData = {
             <img src="../img/filled-brain1.svg" alt="identitetbrik">`,
 
     puzzle2: `Scanning gennemført! <br> Du har fundet: 
-            <br> <h2>Fantasi, Drømme <br> og Visioner</h2> <br>
+            <br> <h2>Fantasi, Drømme <br> og Visioner!</h2> <br>
             <img src="../img/filled-brain2.svg" alt="fantasi, drømme og visioner brik">`,
 
     puzzle3: `Scanning gennemført! <br> Du har fundet: 
-            <br> <h2>Normalitet</h2> <br>
+            <br> <h2>Normalitet!</h2> <br>
             <img src="../img/filled-brain3.svg" alt="normalitet brik">`
 };
 
@@ -177,7 +177,7 @@ function handlePuzzle(id) {
     // hvis teksten er undefined, null eller tom bliver betingelsen true.
     if(!text) {
         // Hvis qr-koden ikke matcher et id i puzzleData, vises følgende besked
-        alert("Ukendt QR-kode" + id);
+        alert("Ukendt QR-kode" + id)
         // Return stopper funktionen
         return;
     }
@@ -185,6 +185,8 @@ function handlePuzzle(id) {
     document.getElementById("popUpText").innerHTML = text;
     // Viser pop-op vinduet
     document.getElementById("popUp").style.display = "block";
+
+    
 }
 
 // Laver en funktion til at lukke pop-op vinduet igen.
