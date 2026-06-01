@@ -25,13 +25,20 @@
   --font-size-xxl: 28px;
 }
 
-/* her får body et billede som baggrund*/
+/* general styling for body*/
 body {
-  background-image: url("../../img/collage1.png"); /* sti til dit billede */
-  background-size: cover; /* Billedet dækker hele skærmen uden at blive strukket */
-  background-position: center; /* Centrerer billedet */
-  background-repeat: no-repeat; /* Billedet gentages ikke */
-  min-height: 100vh; /* så billede fylder hele skærmhøjden */
+  background-color: var(--primary-color--);
+  min-height: 100vh;
+}
+
+.backgroundImg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1; /* så billedet ligger bag alt andet */
+  object-fit: contain; /* Hele billedet synligt */
 }
 
 /* iconer */
