@@ -83,7 +83,7 @@ function onScanSuccess(decodedText) {
 
     addPiece(brainId);
 
-    upDatePuzzleDisplay();
+    renderPuzzle();
     // Håndterer den funde QR-kode
     // Det vil sige at der f.eks. vil stå "handlePuzzle(puzzle1)" hvis det er den der er scannet
     handlePuzzle(decodedText);
@@ -116,28 +116,50 @@ function addPiece(brainId) {
     }
 }
 
-function upDatePuzzleDisplay() {
+function renderPuzzle() {
     const found = getFoundPieces();
 
     if(found.includes("1")) {
-        document.getElementById("bottomBrainPiece").src= "../img/filled-brain1.svg";
+        document.getElementById("bottomBrainPiece").src="../img/filled-brain1.svg";
+    } else {
+        document.getElementById("bottomBrainPiece").src="../img/blank-brain1.svg";
     }
 
     if(found.includes("2")) {
-        document.getElementById("bottomBrainPiece").src= "../img/filled-brain2.svg";
+        document.getElementById("middleBrainPiece").src="../img/filled-brain2.svg";
+    } else {
+        document.getElementById("middleBrainPiece").src="../img/blank-brain2.svg";
     }
 
     if(found.includes("3")) {
-        document.getElementById("bottomBrainPiece").src= "../img/filled-brain3.svg";
+        document.getElementById("bottomLeftBrainPiece").src= "../img/filled-brain3.svg";
+    } else {
+        document.getElementById("bottomLeftBrainPiece").src= "../img/blank-brain3.svg";
+    }
+
+    const progressText = document.querySelector("#puzzleProgressText p");
+    if(progressText) {
+        progressText.textContent = `${found.length}/7 fundet`
     }
 }
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    upDatePuzzleDisplay();
+    renderPuzzle();
 });
 
 
+// Reset puslespilet
+const resetBtn = document.getElementById("resetBtn");
+
+function resetPuzzle(){
+    localStorage.removeItem("FoundPieces");
+    renderPuzzle();// vigtig
+}
+
+resetBtn.addEventListener("click", ()=>{
+    resetPuzzle();
+    console.log("reset clicked");
+});
 
 
 
