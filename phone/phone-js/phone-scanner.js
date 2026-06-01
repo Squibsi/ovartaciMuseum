@@ -177,13 +177,7 @@ function handlePuzzle(id) {
     // hvis teksten er undefined, null eller tom bliver betingelsen true.
     if(!text) {
         // Hvis qr-koden ikke matcher et id i puzzleData, vises følgende besked
-        alert("Ukendt QR-kode" + id);
-
-        document.getElementById("homeScreen").style.display = "none";
-        document.getElementById("scannerScreen").style.display = "block";
-
-        startScanner();
-    
+        alert("Ukendt QR-kode" + id)
         // Return stopper funktionen
         return;
     }
