@@ -39,7 +39,7 @@ body {
 #backIcon {
   height: 3rem;
   width: auto;
-  z-index: 4;
+  z-index: 6;
 }
 
 #backIcon {
@@ -75,39 +75,39 @@ body {
 
 #figure1Hitboks {
   position: relative;
-  z-index: 3;
+  z-index: 5;
 }
 
 #figure2Hitboks {
   position: relative;
   width: 100vw;
+  z-index: 4;
 }
 
 #figure3Hitboks {
   position: relative;
   width: 150vw;
   bottom: 90vh;
+  z-index: 3;
 }
 
 .figureImg {
-  animation:
-    zoomInd 0.4s ease-out forwards 2.7s,
-    tilting 3s infinite 3.1s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
+  animation: tilting 3s infinite 3.1s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
 }
 /* --------------------------------------------------------------------------------------------------------
 overgangs animation
 -------------------------------------------------------------------------------------------------------- */
 
 #revealLayerCut1 {
-  z-index: 4;
+  z-index: 9;
 }
 
 #revealLayerCut2 {
-  z-index: 5;
+  z-index: 8;
 }
 
-#revealLayerCut1 {
-  z-index: 6;
+#revealLayerCut3 {
+  z-index: 7;
 }
 
 /* --------------------------------------------------------------------------------------------------------
@@ -154,31 +154,13 @@ Animation - overgangs animation
   }
   100% {
     opacity: 1;
-    transform: scale(1.2); /* forstørrer så hullerne bliver større */
+    transform: scale(2); /* forstørrer så hullerne bliver større */
   }
 }
 
-@keyframes fadeOut {
-  to {
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
-  }
-}
 /* --------------------------------------------------------------------------------------------------------
 Animation - figurer animation
 -------------------------------------------------------------------------------------------------------- */
-/* Zoom-ind animation (kører kun én gang) */
-@keyframes zoomInd {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 
 /* denne animation får figurerne til at bevæge sig */
 @keyframes tilting {
@@ -215,6 +197,9 @@ Overlay
 
 /* overlay content (den hvide boks) */
 .hiddenOverlayContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: var(--primary-color--);
   padding: 2rem;
   border-radius: 2rem;
@@ -235,4 +220,23 @@ Overlay
   font-weight: bold;
   cursor: pointer;
   color: var(--secondary-color--);
+}
+
+.overlayText p {
+  text-align: left;
+  font-size: var(--font-size-base);
+  margin-left: 2rem;
+  font-family: var(--text-font--);
+}
+
+.overlayText h2 {
+  text-align: left;
+  font-size: var(--font-size-large);
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--header-font--);
+}
+
+.overlayText {
+  padding: 2rem;
 }
