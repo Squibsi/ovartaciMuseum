@@ -90,12 +90,25 @@ body {
 }
 
 .figureImg {
-  animation: tilting 3s infinite; /* looper uendeligt */
+  animation:
+    zoomInd 0.4s ease-out forwards,
+    tilting 3s infinite 0.4s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
 }
 
 /* --------------------------------------------------------------------------------------------------------
 Animation 
 -------------------------------------------------------------------------------------------------------- */
+/* Zoom-ind animation (kører kun én gang) */
+@keyframes zoomInd {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* denne animation får figurerne til at bevæge sig */
 @keyframes tilting {
