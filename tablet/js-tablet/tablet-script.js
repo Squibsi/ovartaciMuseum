@@ -90,3 +90,24 @@ if (codeHowItWorksBtn) {
     window.location.href = "tutorial.html";
   });
 }
+
+
+// Kode til at vise brikker alt efter koden som gæsten har indtastet
+function loadPuzzleFromCode(code) {
+
+  const pieces = code.split("-");
+
+  if(pieces.includes("1")) {
+    console.log("Vis identitet");
+  }
+
+  if(pieces.includes("2")) {
+    console.log("Vis Fantasi");
+  }
+
+  if(pieces.includes("3")) {
+    console.log("Vis Normalitet");
+  }
+}
+
+loadPuzzleFromCode(kode);
