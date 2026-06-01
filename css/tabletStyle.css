@@ -21,7 +21,7 @@
   --font-size-base: 16px;
   --font-size-medium: 18px;
   --font-size-large: 20px;
-  --font-size-xl: 24px;
+  --font-size-xl: 25px;
   --font-size-xxl: 28px;
 }
 
@@ -52,7 +52,7 @@ p {
 
 #ovartaci1 {
   color: white;
-  top: 40%;
+  top: 45%;
   font-size: 7rem;
   font-weight: lighter;
 }
@@ -164,7 +164,7 @@ section {
 .closeBtn {
   position: absolute;
   top: 15px;
-  right: 20px;
+  right: 24px;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -190,7 +190,7 @@ section {
   border: none;
   padding: 8px 20px;
   margin: 5px;
-  border-radius: 40px;
+  border-radius: 45px;
   cursor: pointer;
   font-family: "Inter", sans-serif;
   font-size: 0.9rem;
