@@ -47,7 +47,17 @@ header {
     background: white;
     padding: 20px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+header p {
+    font-family: var(--header-font--);
+    font-size: var(--font-size-small);
+    letter-spacing: 0.105rem;
+    margin-left: 0.23rem;
+    color: grey;
 }
 
 /* Styling til bjælken under header */
@@ -77,10 +87,10 @@ h1 {
 
 
 /* Styling kun til "hjælp mig i gang" knap */
-#helpBtn {
+#helpBtn, #nextBtn {
     font-family: var(--text-font--);
     font-size: var(--font-size-base);
-    width: 14%;
+    width: 40%;
     background-color: var(--btn-color--);
     border-radius: 15px;
     padding: 20px;
@@ -98,8 +108,49 @@ h1 {
     color: var(--text-color--);
 }
 
+#nextBtn{
+    margin-top: 2rem;
+}
+
+
+
 .onboarding {
     display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 60vh;
+}
+
+#instructionImg {
+    width: 8rem;
+    margin-top: 5rem;
+}
+
+#instructionText {
+    width: 65%;
+    text-align: center;
+    font-size: var(--font-size-xxl);
+    font-family: var(--text-font--);
+    font-weight: light;
+    margin-top: 4.5rem;
+}
+
+/*------progress dots------*/
+.progress-dots {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 5rem;
+}
+
+.dot {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.dot.active {
+    background-color: red;
 }
 
 

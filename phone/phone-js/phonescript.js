@@ -14,12 +14,12 @@ document.getElementById("tried-before-btn").addEventListener("click", () => {
 
 const helpBtn = document.getElementById("helpBtn");
 const onboarding = document.querySelector(".onboarding");
-const startScreen = document.querySelector(".phone");
+const startContent = document.querySelector(".start-content");
 
 
 helpBtn.addEventListener("click", () => {
-    onboarding.style.display = "block";
-    startScreen.style.display = "none";
+    onboarding.style.display = "flex";
+    startContent.style.display = "none";
 
     currentStep = 0;
     renderSteps();
@@ -29,19 +29,19 @@ helpBtn.addEventListener("click", () => {
 
 const instructions = [
     {
-      text: "Indsæt instruktion 1 her",
-      img: "indsæt billede her"  
+      text: "Find QR-koderne rundt omkring i museets områder",
+      img: "../img/qr-code-img.png"  
     },
     {
-      text: "Indsæt instruktion 2 her",
-      img: "indsæt billede her"  
+      text: "Start scanneren og scan QR-koderne",
+      img: "../img/qr-code-img.png"  
     },
     {
-      text: "Indsæt instruktion 3 her",
-      img: "indsæt billede her"  
+      text: "Saml de forskellige områder på museet",
+      img: "../img/full-empty-brain.svg"
     },
     {
-      text: "Indsæt instruktion 4 her",
+      text: "Generér din kode og tast den ind på skærmen til sidst",
       img: "indsæt billede her"  
     }
 ];
@@ -50,11 +50,23 @@ const instructions = [
 let currentStep = 0
 
 const instructionText = document.getElementById("instructionText");
+const instructionImg = document.getElementById("instructionImg");
 const nextBtn = document.getElementById("nextBtn");
+const dots = document.querySelectorAll(".dot");
 
 
 function renderSteps() {
     instructionText.textContent = instructions[currentStep].text;
+    instructionImg.src = instructions[currentStep].img;
+
+    // Opdater progress dots
+    dots.forEach((dot, index) => {
+        if (index === currentStep) {
+            dot.classList.add("active");
+        } else {
+            dot.classList.remove("active");
+        }
+    });
 
     if (currentStep === instructions.length - 1) {
         nextBtn.textContent = "Start";
