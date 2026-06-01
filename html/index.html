@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!--Fan icon-->
+    <link rel="icon" href="img/fan-icon.png" type="img/icon" />
+    <link rel="stylesheet" href="../css/tablet-style.css" />
+    <title>Museum Ovartaci</title>
+  </head>
+  <body>
+    <h3 id="ovartaci1">Drøm med</h3>
+    <h2 id="ovartaci2">Ovartaci</h2>
+
+    <div class="slider-container">
+      <div class="slider-track" id="sliderTrack">
+        <img src="../img/slide1.png" alt="Ovartaci 1" class="slide-img" />
+        <img src="../img/slide2.png" alt="Ovartaci 2" class="slide-img" />
+        <img src="../img/slide3.png" alt="Ovartaci 3" class="slide-img" />
+      </div>
+    </div>
+
+    <section id="introText">
+      <p>
+        Lad dig suge ind i Ovartaci’s drømmende og fantastiske univers. Indsaml
+        puslespilsbrikker ved at scanne QR-koderne, på museet, og dyk dybere. ind
+        i Ovartaci's hjerne.
+      </p>
+      <p>Indtast koden fra din mobil for at komme i gang.</p>
+    </section>
+    <!-- knapper -->
+    <section>
+      <button id="generateCodeButton">Skriv kode</button>
+      <button id="howItWorksButton">Hvordan fungere dette?</button>
+    </section>
+
+    <!-- Skjult overlay med login -->
+    <div id="overlayCode" class="codeOverlay">
+      <div class="codeOverlayContent">
+        <span class="closeBtn">&times;</span>
+        <h3>SKRIV KODE</h3>
+        <p>Skriv koden, som vist på mobilen</p>
+        <input type="text" id="codeInput" placeholder="_ _ _ _" />
+        <div class="codeButtons">
+          <button id="codeAcceptBtn">Godkend</button>
+          <button id="codeHowItWorksBtn">Hvordan fungere dette</button>
+        </div>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
