@@ -71,16 +71,27 @@ window.addEventListener("click", (event) => {
 // Godkend-knap: Gem koden i localStorage
 if (codeAcceptBtn) {
   codeAcceptBtn.addEventListener("click", () => {
-    const kode = codeInput.value.trim();
-    if (kode === "") {
+    const Code = codeInput.value.trim();
+    if (Code === "") {
       alert("Indtast venligst en kode.");
       return;
     }
+    // Split koden ved "-" for at få array af brik-id'er (f.eks. "1-2-3" -> ["1","2","3"])
+    const pieces = Code.split("-");
+    // Valider at alle elementer er "1", "2" eller "3" (eller andre gyldige id'er)
+    const valid = pieces.every((id) => id === "1" || id === "2" || id === "3");
+    if (!valid || pieces.length === 0) {
+      alert(
+        "Ugyldig kode. Koden består af tal adskilt af bindestreg, f.eks. 1-2-3",
+      );
+      return;
+    }
     // Gem koden i localStorage
-    localStorage.setItem("museumKode", kode);
-    alert(`Koden "${kode}" er gemt. Du kan nu lukke vinduet.`);
-    modal.style.display = "none";
-    // Her kan du senere omdirigere eller vise nyt indhold
+    localStorage.setItem("foundPieces", JSON.stringify(pieces));
+    alert(`Koden "${Code}" er gemt. Du bliver nu sendt til din hjerne.`);
+    overlay.style.display = "none";
+    // Omdiriger til mainpage (justér stien efter dit projekt)
+    window.location.href = "../tablet/mainpage.html";
   });
 }
 
@@ -91,23 +102,19 @@ if (codeHowItWorksBtn) {
   });
 }
 
-
 // Kode til at vise brikker alt efter koden som gæsten har indtastet
-function loadPuzzleFromCode(code) {
+function loadPuzzleFromCode(Code) {
+  const pieces = Code.split("-");
 
-  const pieces = code.split("-");
-
-  if(pieces.includes("1")) {
+  if (pieces.includes("1")) {
     console.log("Vis identitet");
   }
 
-  if(pieces.includes("2")) {
+  if (pieces.includes("2")) {
     console.log("Vis Fantasi");
   }
 
-  if(pieces.includes("3")) {
+  if (pieces.includes("3")) {
     console.log("Vis Normalitet");
   }
 }
-
-loadPuzzleFromCode(kode);
