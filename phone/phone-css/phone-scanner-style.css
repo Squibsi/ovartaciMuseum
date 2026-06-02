@@ -162,7 +162,7 @@ body {
 
 
 /* -------ANIMATION------- */
-
+/* Animation mellem start skærmen og skærmen med puslespillet */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -173,8 +173,18 @@ body {
     }
 }
 
+/* Animation til pop op vinduet efter succesfuld scanning */
+@keyframes slideUp {
+    from {
+        bottom: -100px;
+        opacity: 0;
+    }
 
-
+    to {
+        bottom: 15vh;
+        opacity: 1;
+    }
+}
 
 
 
@@ -190,14 +200,21 @@ body {
 #popUp {
     display: none;
     position: fixed;
-    top: 15vh;
+    /* top: 15vh; */
     left: 50vw;
     transform: translateX(-50%);
     background: var(--primary-color--);
+    bottom: -100%;
     padding: 20px;
     border: solid 5px white;
     border-radius: 15px;
     z-index: 999;
+    opacity: 0;
+}
+
+/* Animation til pop-op efter succesfuld scanning */
+#popUp.show{
+    animation: slideUp 0.5s ease forwards;
 }
 
 #popUpText {

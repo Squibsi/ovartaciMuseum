@@ -203,8 +203,10 @@ function handlePuzzle(id) {
     }
     // Hvis qr-koden matcher et id i puzzleData fortsætter funktionen og viser teksten fra popUp i HTML
     document.getElementById("popUpText").innerHTML = text;
-    // Viser pop-op vinduet
-    document.getElementById("popUp").style.display = "block";
+    // Viser pop-op vinduet med animationen fra CSS.
+    const popUp = document.getElementById("popUp");
+    popUp.style.display = "block";
+    popUp.classList.add("show");
 
     const scanSuccesSound = new Audio ("../sounds/succes-soundeffect.mp3");
     scanSuccesSound.currentTime = 0;
@@ -215,12 +217,18 @@ function handlePuzzle(id) {
 // Laver en funktion til at lukke pop-op vinduet igen.
 // Den er sat på som et click-event i HTML
 function closePopUp() {
+    const popUp = document.getElementById("popUp");
+
+    popUp.classList.remove("show");
     // Lukker pop-op vinduet
-    document.getElementById("popUp").style.display = "none";
+    // document.getElementById("popUp").style.display = "none";
     // Viser hjemmeskærmen igen
+    setTimeout(() => {
+        popUp.style.display = "none";
+   
     document.getElementById("homeScreen").style.display = "block";
     // Skjuler scanner-skærmen
-    document.getElementById("scannerScreen").style.display = "none";
+    document.getElementById("scannerScreen").style.display = "none"; }, 300);
 }
 
 
