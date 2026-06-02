@@ -1,12 +1,29 @@
 "use strict";
 // ------------- start animation ------------- //
 // denne er med til at fjerne reveal-layer når animationen er færdig
-const maxDelay = 3.2; // sekunder (2.7s + 0.5s buffer)
-setTimeout(() => {
-  document.querySelectorAll(".reveal-layer").forEach((layer) => {
-    layer.remove();
+// const maxDelay = 3.2; // sekunder (2.7s + 0.5s buffer)
+// setTimeout(() => {
+// document.querySelectorAll(".reveal-layer").forEach((layer) => {
+// layer.remove();
+// });
+// }, maxDelay * 1000);
+
+// ------------- start animation ------------- //
+const lastCutLayer = document.getElementById("revealLayerCut3");
+if (lastCutLayer) {
+  lastCutLayer.addEventListener("animationend", () => {
+    document.querySelectorAll(".reveal-layer").forEach((layer) => {
+      layer.remove();
+    });
   });
-}, maxDelay * 1000);
+} else {
+  // backup
+  setTimeout(() => {
+    document.querySelectorAll(".reveal-layer").forEach((layer) => {
+      layer.remove();
+    });
+  }, 3200);
+}
 
 // ------------- knappper ------------- //
 //hjem
