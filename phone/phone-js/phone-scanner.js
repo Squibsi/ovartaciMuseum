@@ -198,6 +198,9 @@ function handlePuzzle(id) {
     if(!text) {
         // Hvis qr-koden ikke matcher et id i puzzleData, vises følgende besked
         alert("Ukendt QR-kode" + id)
+        const errorSound = new Audio ("../sounds/error-soundeffect.mp3");
+        errorSound.currentTime = 0;
+        errorSound.play();
         // Return stopper funktionen
         return;
     }
