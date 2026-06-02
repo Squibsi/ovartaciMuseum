@@ -1,0 +1,134 @@
+/* Variabler som kan bruges gennem CSS*/
+:root {
+  /* Farver */
+  --primary-color--: #c7d4e3;
+  --secondary-color--: #da2328;
+  --text-color--: black;
+  --btn-color--: #52805a;
+
+  /* Typografier */
+  --header-font--: "Bebas Neue";
+  --text-font--: "Inter";
+
+  /* Tekst størrelser */
+  --font-size-small: 13px;
+  --font-size-base: 16px;
+  --font-size-medium: 18px;
+  --font-size-large: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 28px;
+}
+
+/* body */
+body {
+  background-color: var(--primary-color--);
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: var(--text-font--);
+}
+/* baggrundsbillede */
+/* containeren fylder hele skærmen */
+.backgroundContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.backgroundImage {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header */
+.navigationHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 0.5rem 2rem; /* giver luft i siderne */
+}
+
+.leftPlaceholder {
+  width: 4rem; /* bredde, der matcher right-area (justér efter behov) */
+}
+
+.logo {
+  flex-shrink: 0; /* forhindrer at logoet krymper */
+}
+
+.logoImg {
+  height: 5rem;
+  width: auto;
+}
+
+.rightArea {
+  width: 4rem; /* samme bredde som leftPlaceholder */
+  display: flex;
+  justify-content: flex-end; /* skubber homeIcon til højre */
+}
+
+.redLine {
+  height: 1rem;
+  background-color: var(--secondary-color--);
+}
+
+/* icon billeder */
+#homeIcon,
+#backIcon {
+  height: 3rem;
+  width: auto;
+}
+
+#backIcon {
+  display: flex;
+  bottom: 3rem;
+  left: -10rem;
+  position: relative;
+}
+
+/* Hovedindhold */
+.Main {
+  max-width: 800px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.Main h2 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 2.5rem;
+  color: #2c3e66;
+  margin-bottom: 1rem;
+}
+
+.Text {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 30px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.figure {
+  width: auto;
+  height: 23rem;
+}
+/* Forstået-knap */
+.Btnunderstood {
+  background: none;
+  color: black;
+  border: solid 0.3rem var(--secondary-color--);
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-family: var(--text-font--);
+  border-radius: 40px;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
