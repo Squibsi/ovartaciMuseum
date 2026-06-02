@@ -103,11 +103,17 @@ body {
   align-items: center;
   text-align: center;
   margin-top: 3vh;
+  gap: 1rem;
 }
 
-/* Giver lidt luft mellem overskriften og processen af hvor mange brikker man har fundet */
-#puzzleProgressText h1 {
-  margin-bottom: 2vh;
+.info {
+  font-size: var(--font-size-base);
+  font-family: var(--text-font--);
+}
+
+.foundText {
+  font-size: var(--font-size-base);
+  font-family: var(--header-font--);
 }
 
 /* Styling til alle puslespilsbrikkerne */
@@ -167,5 +173,67 @@ Animation
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------------------------------------
+Tilpasning til Ipad
+-------------------------------------------------------------------------------------------------------- */
+
+/* iPad Air 4. generation – landskabsvisning */
+@media (min-width: 1024px) and (orientation: landscape) {
+  /* Header: centrer logo bedre */
+  .navigationHeader {
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+  }
+  .logo {
+    margin: 1rem; /* fjern de store marginer */
+    flex: 1;
+    text-align: center;
+  }
+  .logoImg {
+    height: 4rem; /* lidt mindre logo på iPad */
+    margin-left: 20rem;
+  }
+  .navRight {
+    gap: 1.5rem;
+  }
+
+  #homeIcon {
+    height: 2.5rem;
+  }
+  #logOutBtn,
+  #updateBtn {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  /* Puslespilscontainer – giv lidt plads */
+  #puzzleProgressImg {
+    height: 45vh;
+    scale: 1.5;
+  }
+
+  /* Brikkerne: justér translate-værdier for at passe til baggrunden */
+  #bottomBrainPiece {
+    width: 10vw;
+    transform: translate(0vw, 8.5vw);
+  }
+  #middleBrainPiece {
+    width: 10vw;
+    transform: translate(-0.5vw, 3.5vh);
+  }
+  #bottomLeftBrainPiece {
+    width: 10vw;
+    transform: translate(-7.5vw, 2vh);
+  }
+
+  /* Tekststørrelser */
+  #puzzleProgressText h1 {
+    font-size: 2rem;
+  }
+  #puzzleProgressText p {
+    font-size: 1.5rem;
   }
 }
