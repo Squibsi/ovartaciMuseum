@@ -79,8 +79,11 @@ function onScanSuccess(decodedText) {
         scanning = false;
     });
 
+    // Henter "puzzle1, puzzle2" osv. fra puzzleData og fjerner ordet "puzzle".
+    // Det gør at vi kun har tallene som bruges til id.
     const brainId = decodedText.replace("puzzle", "");
 
+    // Kalder på funktionen addPiece med brainId som argument.
     addPiece(brainId);
 
     renderPuzzle();
@@ -91,34 +94,44 @@ function onScanSuccess(decodedText) {
 
 // Funktion til localStorage
 function getFoundPieces() {
+    // Henter "FoundPieces" fra localStorage og gemmer det i const "saved"
     const saved = localStorage.getItem("FoundPieces");
 
+    // Hvis der findes data i "saved", konvereteres JSON til array/objekt og returneres.
     if(saved) {
         return JSON.parse(saved);
     }
-
+    // Hvis der ikke findes data i "saved", returneres et tomt array.
     return [];
 }
 
-// Gemmer brikkerne
+// Gemmer brikkerne i localStorage.
 function saveFoundPieces(pieces) {
     localStorage.setItem("FoundPieces", JSON.stringify(pieces));
 }
 
 // Tilføjer brikken
 function addPiece(brainId) {
+    // Henter de brikker der er fundet, fra localStorage
     let found = getFoundPieces();
 
+    // Tjekker om brikken har været scannet før. Hvis ikke køre næste kode.
+    // Det gør at brikken ikke kan gemmes 2 gange i arrayet.
     if(!found.includes(brainId)) {
+        // Tilføjer den nye brik til array.
         found.push(brainId);
+        // Gemmer den nye opdaterede liste.
         saveFoundPieces(found);
         console.log(`Brik ${brainId} gemt`)
     }
 }
 
-function renderPuzzle() {
-    const found = getFoundPieces();
+// Viser puslespillet alt efter hvilke brikker der er fundet
+    function renderPuzzle() {
+        const found = getFoundPieces();
 
+    // Tjekker om der findes en brik med id "1" i found. Hvis true sættes billedet ind med farve på.
+    // Hvis false, forbliver den tom.
     if(found.includes("1")) {
         document.getElementById("bottomBrainPiece").src="../img/filled-brain1.svg";
     } else {
@@ -137,12 +150,15 @@ function renderPuzzle() {
         document.getElementById("bottomLeftBrainPiece").src= "../img/blank-brain3.svg";
     }
 
+    // Opdaterer teksten "?/7 fundet", baseret på hvor mange brikker der er scannet.
     const progressText = document.querySelector("#puzzleProgressText p");
     if(progressText) {
+        // found.length er antallet af brikker fundet, altså længden på arrayet.
         progressText.textContent = `${found.length}/7 fundet`
     }
 }
 
+// Sørger for at opdatere/vise psulespillet efter siden er loaded
 document.addEventListener("DOMContentLoaded", () => {
     renderPuzzle();
 });
@@ -151,11 +167,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // Reset puslespilet
 const resetBtn = document.getElementById("resetBtn");
 
+// Fjerner puslespilsbrikkerne fra localStorage, så de ikke længere vises på skærmen
 function resetPuzzle(){
     localStorage.removeItem("FoundPieces");
-    renderPuzzle();// vigtig
+    // Kører funktionen renderPuzzle igen, efter localStorage er tømt.
+    // Nu findes brikkerne ikke i localStorage længere så brikkerne bliver hvide og process teksten opdateres til 0. 
+    renderPuzzle();
 }
 
+// Kører resetPuzzle funktionen når man klikker på "reset"-knappen
 resetBtn.addEventListener("click", ()=>{
     resetPuzzle();
    
@@ -203,14 +223,21 @@ function closePopUp() {
 
 // Generering af museumskoden
 function generateMuseumCode() {
+    // hent de fundne brikker
     const found = getFoundPieces();
 
+    // Tjekker om der ligger noget i arrayet (er der fundet nogle brikker?)
+    // Hvis ikke, returnerer den null og stopper her, fordi der mangler at blive fundet brikker.
+    // Det vil sige "du kan ikke generere en kode, for du har ikke fundet nogle brikker endnu"
     if(found.length === 0) {
         return null;
     }
 
+    // Sorterer brikkerne så de altid ligger i samme rækkefølge, uanset hvilken rækkefølge de er fundet i.
+    // På den måde bliver koden ens uanset rækkefølge eller gæst.
     found.sort();
 
+    // Sætter koden sammen med bindestreg.
     return found.join("-");
 }
 
@@ -219,24 +246,33 @@ const generateCodeBtn = document.getElementById("generateCodeBtn");
 if(generateCodeBtn) {
     generateCodeBtn.addEventListener("click", ()=>{
 
+        // Henter gæstens kode.
         const code = generateMuseumCode();
 
+        // Tjekker om gæsten har fundet en brik endnu. (!code) Betyder "hvis IKKE".
+        // Hvis (!code) = true, køres if funktionen og man får pop-oppen. Det bliver den kun hvis der ikke er fundet en brik.
         if(!code){
             alert("Du har ikke fundet nogen brikker endnu");
             return;
         }
 
+        // Indsætter indholdet af "code" i tekst-feltet "museumCodeText" fra HTML.
         document.getElementById("museumCodeText").textContent = code;
+        // Viser pop-op vinduet. "Flex" giver mulighed for mere styling end "block", som er lettere til pop-ops
         document.getElementById("codePopUp").style.display = "flex";
+        // Skjuler "reset"-knappen
         document.getElementById("resetBtn").style.display = "none";
     });
 }
 
+// Funktion til at lukke pop-op vinduet igen
 const closeCodePopUpBtn = document.getElementById("closeCodePopUp");
 
 if(closeCodePopUpBtn) {
     closeCodePopUpBtn.addEventListener("click", () => {
+        // Skjuler pop-op vinduet.
         document.getElementById("codePopUp").style.display = "none";
+        // Viser "reset"-knappen igen
         document.getElementById("resetBtn").style.display = "block";
     });
 }
