@@ -190,7 +190,7 @@ body {
 #popUp {
     display: none;
     position: fixed;
-    top: 30vh;
+    top: 15vh;
     left: 50vw;
     transform: translateX(-50%);
     background: var(--primary-color--);
