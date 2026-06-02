@@ -43,7 +43,11 @@ body {
   display: flex;
   align-items: center;
   background-color: white;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
+}
+.redLine {
+  height: 1rem;
+  background-color: var(--secondary-color--);
 }
 
 /* logo */
@@ -185,7 +189,11 @@ Tilpasning til Ipad
   /* Header: centrer logo bedre */
   .navigationHeader {
     justify-content: space-between;
-    padding: 0.5rem 2rem;
+    padding: 0rem 2rem;
+  }
+  .redLine {
+    height: 0.5rem;
+    background-color: var(--secondary-color--);
   }
   .logo {
     margin: 1rem; /* fjern de store marginer */
