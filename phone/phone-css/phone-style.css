@@ -123,7 +123,6 @@ h1 {
 #instructionImg {
     width: 8rem;
     height: 8rem;
-    margin-top: 3rem;
     min-height: 8rem;
 }
 
@@ -155,10 +154,109 @@ h1 {
     background-color: red;
 }
 
+.image-wrapper {
+    position: relative;
+    width: 8rem;
+    height: 8rem;
+    margin-top: 3rem;
+}
+
 
 /* --------ANIMATION-------- */
 
 /* Body fade-out animation */
 body.fade-out {
     opacity: 0;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Tilføj klasser vi kan toggles fra JS */
+.slide-up {
+    animation: slideUp 0.8s ease forwards;
+}
+
+.fade-in {
+    animation: fadeIn 2.5s ease forwards;
+}
+
+/* Optional overlay-billede for slide 3 */
+#instructionOverlay {
+    position: absolute;
+    width: 8rem;
+    height: 8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+#cornerEffect {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Generel corner styling */
+.corner {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    opacity: 0;
+}
+
+/* Top left */
+.top-left {
+    top: -16px;
+    left: -16px;
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+}
+
+/* Top right */
+.top-right {
+    top: -16px;
+    right: -16px;
+    border-top: 5px solid black;
+    border-right: 5px solid black;
+}
+
+/* Bottom left */
+.bottom-left {
+    bottom: -16px;
+    left: -16px;
+    border-bottom: 5px solid black;
+    border-left: 5px solid black;
+}
+
+/* Bottom right */
+.bottom-right {
+    bottom: -16px;
+    right: -16px;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+}
+
+/* Animation */
+#cornerEffect.fade-corners .corner {
+    animation: fadeIn 1.4s ease forwards;
 }

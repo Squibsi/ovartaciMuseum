@@ -59,6 +59,16 @@ function renderSteps() {
     instructionText.textContent = instructions[currentStep].text;
     instructionImg.src = instructions[currentStep].img;
 
+    // Reset
+    const overlay = document.getElementById("instructionOverlay");
+    overlay.style.opacity = 0;
+    overlay.classList.remove("fade-in");
+
+    const cornerEffect = document.getElementById("cornerEffect");
+    cornerEffect.classList.remove("fade-corners");
+
+    instructionImg.classList.remove("slide-up", "fade-in");
+
     // Opdater progress dots
     dots.forEach((dot, index) => {
         if (index === currentStep) {
@@ -67,6 +77,16 @@ function renderSteps() {
             dot.classList.remove("active");
         }
     });
+
+    // --- ANIMATIONER ---
+    if (currentStep === 0) {
+        instructionImg.classList.add("slide-up");
+    } else if (currentStep === 1) {
+        cornerEffect.classList.add("fade-corners");
+    } else if (currentStep === 2) {
+        overlay.src = "../img/full-colour-brain.svg";
+        overlay.classList.add("fade-in");
+    }
 
     if (currentStep === instructions.length - 1) {
         nextBtn.textContent = "Start";
