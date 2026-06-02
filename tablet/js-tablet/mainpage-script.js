@@ -116,6 +116,7 @@ if (updateBtn) {
 // ----- Initialisering ved pageload -----
 document.addEventListener("DOMContentLoaded", () => {
   updatePuzzle();
+  console.log("Hentede fundne:", getFoundPieces());
 });
 
 // Gør addPiece global, så den kan kaldes fra konsol eller anden kode (fx QR-side)
