@@ -198,9 +198,6 @@ function handlePuzzle(id) {
     if(!text) {
         // Hvis qr-koden ikke matcher et id i puzzleData, vises følgende besked
         alert("Ukendt QR-kode" + id)
-        const errorSound = new Audio ("../sounds/error-soundeffect.mp3");
-        errorSound.currentTime = 0;
-        errorSound.play();
         // Return stopper funktionen
         return;
     }
@@ -209,6 +206,9 @@ function handlePuzzle(id) {
     // Viser pop-op vinduet
     document.getElementById("popUp").style.display = "block";
 
+    const scanSuccesSound = new Audio ("../sounds/succes-soundeffect.mp3");
+    scanSuccesSound.currentTime = 0;
+    scanSuccesSound.play();
     
 }
 
