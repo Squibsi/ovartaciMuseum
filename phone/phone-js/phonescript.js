@@ -41,8 +41,8 @@ const instructions = [
       img: "../img/full-empty-brain.svg"
     },
     {
-      text: "Generér din kode og tast den ind på skærmen til sidst",
-      img: "indsæt billede her"  
+      text: "Generér din kode og tast den ind på tabletten til sidst, som vist her",
+      img: "../img/skriv-koden.svg"
     }
 ];
 
@@ -67,7 +67,7 @@ function renderSteps() {
     const cornerEffect = document.getElementById("cornerEffect");
     cornerEffect.classList.remove("fade-corners");
 
-    instructionImg.classList.remove("slide-up", "fade-in");
+    instructionImg.classList.remove("slide-up", "fade-in", "wide-image");
 
     // Opdater progress dots
     dots.forEach((dot, index) => {
@@ -86,6 +86,9 @@ function renderSteps() {
     } else if (currentStep === 2) {
         overlay.src = "../img/full-colour-brain.svg";
         overlay.classList.add("fade-in");
+    } else if (currentStep === 3) {
+        instructionImg.classList.add("slide-up");
+        instructionImg.classList.add("wide-image");
     }
 
     if (currentStep === instructions.length - 1) {
