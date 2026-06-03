@@ -25,14 +25,14 @@
   --font-size-xxl: 28px;
 }
 
-
 /* general styling for body*/
 body {
   background-color: var(--primary-color--);
   min-height: 100vh;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   overflow-x: hidden;
 }
@@ -46,22 +46,11 @@ html, body {
   object-fit: cover; /* Hele billedet synligt */
 }
 
-/* iconer */
-#homeIcon,
-#backIcon {
+/* ikoner */
+#homeIcon {
   height: 3rem;
   width: auto;
   z-index: 6;
-}
-
-#backIcon {
-  display: flex;
-  bottom: 2rem;
-  left: 2rem;
-  position: fixed;
-}
-
-#homeIcon {
   display: flex;
   top: 2rem;
   right: 2rem;
@@ -278,14 +267,6 @@ ipad venlig (landskab)
     top: 2rem;
     right: 2rem;
     left: auto;
-    bottom: auto;
-    z-index: 20;
-  }
-
-  #backIcon {
-    position: fixed;
-    top: 40rem;
-    left: 2rem;
     bottom: auto;
     z-index: 20;
   }
