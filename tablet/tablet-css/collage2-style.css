@@ -32,6 +32,12 @@ body {
   min-height: 100vh;
 }
 
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: auto;
+}
+
 .backgroundImg {
   position: fixed;
   inset: 0;
