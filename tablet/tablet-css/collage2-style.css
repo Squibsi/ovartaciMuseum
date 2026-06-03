@@ -91,12 +91,18 @@ html, body {
 
 #figure1Hitboks {
   /* position: relative; */
+  top: 45%;
+  left: 15%;
+  transform: translate(-50%, -50%);
   z-index: 5;
 }
 
 #figure2Hitboks {
   /* position: relative; */
   /* width: 100vw; */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 4;
 }
 
@@ -104,6 +110,9 @@ html, body {
   /* position: relative; */
   /* width: 100%; */
   /* bottom: 90vh; */
+  top: 35%;
+  left: 85%;
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
 
@@ -293,7 +302,10 @@ ipad venlig (landskab)
   /* Figur-containere: skift til absolut placering */
   .figureDiv {
     position: fixed;
-    width: auto;
+    /* width: auto; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 30%; /* maks bredde 30% af skærmen */
     height: auto;
   }
@@ -302,14 +314,21 @@ ipad venlig (landskab)
   #figure1Hitboks {
     top: 45%;
     left: 15%;
-    transform: translate(-50%, 10%); /* her jeg rykker på figuren */
+    transform: translate(-50%, -50%);
+    /* top: 45%;
+    left: 15%;
+    transform: translate(-50%, 10%); */
+     /* her jeg rykker på figuren */
     z-index: 5;
   }
 
   #figure2Hitboks {
     top: 60%;
     left: 50%;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -50%);
+    /* top: 60%;
+    left: 50%;
+    transform: translate(-50%, 0%); */
     z-index: 4;
     width: auto;
   }
@@ -317,7 +336,10 @@ ipad venlig (landskab)
   #figure3Hitboks {
     top: 35%;
     left: 85%;
-    transform: translate(-50%, -250%);
+    transform: translate(-50%, -50%);
+    /* top: 35%;
+    left: 85%;
+    transform: translate(-50%, -250%); */
     z-index: 3;
     width: auto;
     bottom: auto; /* fjern den gamle bottom */
