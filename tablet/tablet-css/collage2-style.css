@@ -255,6 +255,10 @@ ipad venlig (landskab)
 -------------------------------------------------------------------------------------------------------- */
 /* iPad Air – landskabsvisning (typisk 1180px bredde) */
 @media (min-width: 1024px) and (orientation: landscape) {
+
+  body {
+    background: hotpink!important;
+  }
   /* Baggrundsbillede: fyld skærmen uden tomme striber (cropper lidt) */
   .backgroundImg {
     object-fit: cover;
