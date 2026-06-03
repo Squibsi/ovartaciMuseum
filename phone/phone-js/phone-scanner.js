@@ -19,6 +19,8 @@ const puzzleData = {
 
 
 // -------QR-SCANNER-------
+// Henter "annuller"-knappen fra HTML
+const cancelScanBtn = document.getElementById("cancelScanBtn");
 
 // Henter "start-scanner"-knappen
 const startScanBtn = document.getElementById("startScannerBtn");
@@ -48,6 +50,15 @@ function startScanner() {
     // Markerer at scanneren nu kører
     scanning = true;
 
+    // Annullerer scanningen hvis man klikker på knappen og fører brugeren tilbage til puslespillet
+    cancelScanBtn.addEventListener("click", () => {
+        scanner.stop().then(() => {
+            scanning = false;
+            });
+        document.getElementById("homeScreen").style.display = "block";
+        document.getElementById("scannerScreen").style.display = "none";
+    });
+
     // Åbner kameraet så det er klar til at scanne koderne
     scanner.start(
         
@@ -60,7 +71,8 @@ function startScanner() {
             // Betyder at scanneren kun forsøger at scanne et område svarende til 250x250 px
             qrbox: 250
         },
-
+    
+ 
         // Kalder på funktionen "onScanSucces". Den fortæller hvad der skal ske når de har scannet koden
         onScanSuccess,
     );

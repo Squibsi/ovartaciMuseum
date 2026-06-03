@@ -196,6 +196,19 @@ body {
     margin: 20px auto;
 }
 
+#cancelScanBtn {
+    font-family: var(--text-font--);
+    font-size: var(--font-size-base);
+    background-color: var(--secondary-color--);
+    border-radius: 15px;
+    padding: 20px;
+    /* Fjerner outline fra knappen */
+    outline: none;
+    border: none;
+    color: white;
+    margin: 10vh auto 0 auto;
+    display: block 
+}
 
 #popUp {
     display: none;
