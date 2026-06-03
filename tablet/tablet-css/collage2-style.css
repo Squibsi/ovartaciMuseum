@@ -25,6 +25,12 @@
   --font-size-xxl: 28px;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 /* general styling for body*/
 body {
   background-color: var(--primary-color--);
