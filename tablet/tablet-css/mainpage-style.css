@@ -35,58 +35,55 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   color: var(--text-color--);
-  background-position-y: -10vh;
+  background-position-y: -10vh; /* Justering af baggrundsbillede, men skaber horisontal scroll */
+  overflow-x: hidden; /* Fjerner horisontal scroll */
 }
 
-/* styling af header */
+/* Header */
 .navigationHeader {
   display: flex;
   align-items: center;
   background-color: white;
-  padding: 0.5rem 2rem;
-}
-.redLine {
-  height: 1rem;
-  background-color: var(--secondary-color--);
+  padding: 0.5rem 2rem; /* giver luft i siderne */
 }
 
-/* logo */
-.logo {
-  margin: 0 19rem 0 45rem; /* centrerer logoet oh er ligenu også gap mellem knapper og logo*/
+.leftPlaceholder {
+  width: 30rem; /* bredde, der matcher right-area (justér efter behov) */
 }
+
+.logo {
+  flex-shrink: 1; /* gør den samme størrelse som rightArea */
+  display: flex;
+  justify-content: center; /* centrerer logoet i headeren */
+}
+
 .logoImg {
   height: 5rem;
   width: auto;
 }
 
-/* navigation */
-.navRight {
+.rightArea {
+  flex: 1; /* Samme flex som leftPlaceholder */
   display: flex;
-  align-items: center;
-  gap: 3rem;
+  justify-content: flex-end; /* Skubber knappen til højre */
 }
 
-/*knapper */
-.mainBtns {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
+/* knapper */
 #logOutBtn {
   color: white;
   border: none;
   padding: 0.8rem 2rem;
   font-size: 1.5rem;
   font-family: var(--text-font--);
-  border-radius: 2rem;
-  margin-top: 1rem;
   background-color: var(--secondary-color--);
+  border-radius: 2rem;
+  white-space: nowrap; /* Forhindrer tekst i at bryde */
 }
 
 .redLine {
-  height: 2rem;
+  height: 1rem;
   background-color: var(--secondary-color--);
+  width: 100%;
 }
 
 /* Styling til teksten på siden */
@@ -115,6 +112,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 /* Styling til de samlede puslespilsbrikker */
@@ -127,7 +125,7 @@ body {
 #bottomBrainPiece {
   /* Gør at brikken kan ligge ovenpå billedet nedenunder */
   position: absolute;
-  width: 9.7vw;
+  width: 13vw;
   z-index: 2;
   /* Bruges til at flytte brikken på plads på skærmen */
   transform: translate(-0.2vw, 7.9vw);
@@ -136,7 +134,7 @@ body {
 /* Styling til nederste venstre brik (rød) */
 #bottomLeftBrainPiece {
   position: absolute;
-  width: 10vw;
+  width: 12vw;
   z-index: 2;
   transform: translate(-7vw, 3.2vh);
 }
@@ -144,7 +142,7 @@ body {
 /* Styling til den midterste brik (grøn) */
 #middleBrainPiece {
   position: absolute;
-  width: 9vw;
+  width: 13vw;
   z-index: 2;
   transform: translate(-0.4vw, 5vh);
 }
@@ -175,55 +173,29 @@ Tilpasning til Ipad
 
 /* iPad Air 4. generation – landskabsvisning */
 @media (min-width: 1024px) and (orientation: landscape) {
-  /* Header: centrer logo bedre */
-  .navigationHeader {
-    justify-content: space-between;
-    padding: 0rem 2rem;
-  }
-  .redLine {
-    height: 0.5rem;
-    background-color: var(--secondary-color--);
-  }
-  .logo {
-    margin: 1rem; /* fjern de store marginer */
-    flex: 1;
-    text-align: center;
-  }
-  .logoImg {
-    height: 4rem; /* lidt mindre logo på iPad */
-    margin-left: 20rem;
-  }
-  .navRight {
-    gap: 1.5rem;
-  }
-
-  #homeIcon {
-    height: 2.5rem;
-  }
-  #logOutBtn,
-  #updateBtn {
-    padding: 0.5rem 1.5rem;
-    font-size: 1.2rem;
-  }
-
   /* Puslespilscontainer – giv lidt plads */
   #puzzleProgressImg {
-    height: 45vh;
-    scale: 1.5;
+    height: 50vh;
+  }
+
+  #puzzleBrain {
+    width: 40vw;
+    max-width: 100%;
+    height: auto;
   }
 
   /* Brikkerne: justér translate-værdier for at passe til baggrunden */
   #bottomBrainPiece {
-    width: 10vw;
-    transform: translate(0vw, 8.5vw);
+    width: 16vw;
+    transform: translate(0vw, 14vw);
   }
   #middleBrainPiece {
-    width: 10vw;
-    transform: translate(-0.5vw, 3.5vh);
+    width: 16vw;
+    transform: translate(-1vw, 6vh);
   }
   #bottomLeftBrainPiece {
-    width: 10vw;
-    transform: translate(-7.5vw, 2vh);
+    width: 17vw;
+    transform: translate(-12.5vw, 3.5vh);
   }
 
   /* Tekststørrelser */
