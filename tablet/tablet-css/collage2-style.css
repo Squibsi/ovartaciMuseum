@@ -282,7 +282,7 @@ ipad venlig (landskab)
 
   /* Figur-containere: skift til absolut placering */
   .figureDiv {
-    position: absolute;
+    position: fixed;
     width: auto;
     max-width: 30%; /* maks bredde 30% af skærmen */
     height: auto;
@@ -316,7 +316,7 @@ ipad venlig (landskab)
   /* Selve figur-billedet: tilpas størrelse */
   .figureImg {
     max-width: 100%;
-    max-height: 300px;
+    max-height: 80%;
     width: auto;
     height: auto;
     animation: tilting 3s infinite 3.1s; /* behold vippe-animation */
