@@ -57,12 +57,8 @@ body {
   width: 4rem; /* bredde, der matcher right-area (justér efter behov) */
 }
 
-.logo {
-  flex-shrink: 0; /* forhindrer at logoet krymper */
-}
-
 .logoImg {
-  height: 5rem;
+  height: 4rem;
   width: auto;
 }
 
@@ -77,18 +73,10 @@ body {
   background-color: var(--secondary-color--);
 }
 
-/* icon billeder */
-#homeIcon,
-#backIcon {
+/* ikoner */
+#homeIcon {
   height: 3rem;
   width: auto;
-}
-
-#backIcon {
-  display: flex;
-  bottom: 3rem;
-  left: -10rem;
-  position: relative;
 }
 
 /* Hovedindhold */
@@ -96,7 +84,6 @@ body {
   max-width: 800px;
   margin: 2rem auto;
   text-align: center;
-  padding: 0 1rem;
 }
 
 .main h2 {
@@ -123,6 +110,12 @@ body {
 .figure {
   width: auto;
   height: 23rem;
+}
+
+.imageContainer {
+  height: 23rem;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
 }
 /* Forstået-knap */
 .Btnunderstood {

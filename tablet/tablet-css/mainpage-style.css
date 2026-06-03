@@ -186,7 +186,7 @@ Tilpasning til Ipad
   /* Brikkerne: justér translate-værdier for at passe til baggrunden */
   #bottomBrainPiece {
     width: 16vw;
-    transform: translate(0vw, 14vw);
+    transform: translate(-0.5vw, 14vw);
   }
   #middleBrainPiece {
     width: 16vw;
