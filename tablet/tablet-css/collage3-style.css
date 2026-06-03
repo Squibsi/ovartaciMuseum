@@ -92,21 +92,21 @@ body {
 }
 
 /* Hovedindhold */
-.Main {
+.main {
   max-width: 800px;
   margin: 2rem auto;
   text-align: center;
   padding: 0 1rem;
 }
 
-.Main h2 {
-  font-family: "Bebas Neue", cursive;
+.main h2 {
+  font-family: var(--header-font--);
   font-size: 2.5rem;
   color: #2c3e66;
   margin-bottom: 1rem;
 }
 
-.Text {
+.text {
   font-size: 1.2rem;
   line-height: 1.5;
   background-color: white;
@@ -114,6 +114,10 @@ body {
   border-radius: 30px;
   margin-bottom: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text p {
+  font-family: var(--text-font--);
 }
 
 .figure {
