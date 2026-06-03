@@ -72,7 +72,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
 }
 
 /* billede i div container */
@@ -102,7 +101,8 @@ body {
 }
 
 .figureImg {
-  animation: tilting 3s infinite 3.1s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
+  animation: none;
+  /* animation: tilting 3s infinite 3.1s; zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s */
 }
 /* --------------------------------------------------------------------------------------------------------
 overgangs animation
