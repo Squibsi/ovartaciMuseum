@@ -12,11 +12,12 @@
 const lastCutLayer = document.getElementById("revealLayerCut3");
 if (lastCutLayer) {
   lastCutLayer.addEventListener("animationend", () => {
-    requestAnimationFrame(()=> {
-       document.querySelectorAll(".reveal-layer").forEach((layer) => {
-      layer.remove();
-    });
+    // requestAnimationFrame(()=> {
+       
    
+    // });
+    document.querySelectorAll(".reveal-layer").forEach((layer) => {
+      layer.remove();
     });
   });
 } else {
@@ -28,10 +29,10 @@ if (lastCutLayer) {
   }, 3200);
 }
 
-  document.body.style.transform = "translateZ(0)";
-  setTimeout(() => {
-    document.body.style.transform = "";
-  },50);
+  // document.body.style.transform = "translateZ(0)";
+  // setTimeout(() => {
+  //   document.body.style.transform = "";
+  // },50);
 
 
 // ------------- knappper ------------- //
