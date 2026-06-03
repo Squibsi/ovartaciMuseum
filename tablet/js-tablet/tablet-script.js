@@ -88,8 +88,6 @@ if (codeAcceptBtn) {
     }
     // Gem koden i localStorage
     localStorage.setItem("FoundPieces", JSON.stringify(pieces));
-    alert(`Koden "${Code}" er gemt. Du bliver nu sendt til din hjerne.`);
-    overlay.style.display = "none";
     // Omdiriger til mainpage (justér stien efter dit projekt)
     window.location.href = "../tablet/mainpage.html";
     // console

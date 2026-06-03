@@ -88,12 +88,11 @@ function resetPuzzle() {
   console.log("Spillet er nulstillet");
 }
 
-// ----- Event listeners -----
-
-// hjem knap fører til forsiden
+// Log ud knap: nulstil puslespil og gå til forsiden
 if (logOutBtn) {
   logOutBtn.addEventListener("click", () => {
-    window.location.href = "index.html";
+    resetPuzzle(); // Nulstiller localStorage og opdaterer visning
+    window.location.href = "index.html"; // Går til index-siden
   });
 }
 
