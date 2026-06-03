@@ -25,6 +25,7 @@
   --font-size-xxl: 28px;
 }
 
+
 /* general styling for body*/
 body {
   background-color: var(--primary-color--);
@@ -71,7 +72,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
 }
 
 /* billede i div container */
@@ -83,18 +83,18 @@ body {
 }
 
 #figure1Hitboks {
-  position: fixed;
+  position: relative;
   z-index: 5;
 }
 
 #figure2Hitboks {
-  position: fixed;
+  position: relative;
   width: 100vw;
   z-index: 4;
 }
 
 #figure3Hitboks {
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom: 90vh;
   z-index: 3;
@@ -282,7 +282,7 @@ ipad venlig (landskab)
 
   /* Figur-containere: skift til absolut placering */
   .figureDiv {
-    position: fixed;
+    position: absolute;
     width: auto;
     max-width: 30%; /* maks bredde 30% af skærmen */
     height: auto;
@@ -294,7 +294,6 @@ ipad venlig (landskab)
     left: 15%;
     transform: translate(-50%, 10%); /* her jeg rykker på figuren */
     z-index: 5;
-    position: fixed;
   }
 
   #figure2Hitboks {
@@ -303,7 +302,6 @@ ipad venlig (landskab)
     transform: translate(-50%, 0%);
     z-index: 4;
     width: auto;
-    position: fixed;
   }
 
   #figure3Hitboks {
@@ -313,7 +311,6 @@ ipad venlig (landskab)
     z-index: 3;
     width: auto;
     bottom: auto; /* fjern den gamle bottom */
-    position: fixed;
   }
 
   /* Selve figur-billedet: tilpas størrelse */
@@ -322,7 +319,6 @@ ipad venlig (landskab)
     max-height: 80%;
     width: auto;
     height: auto;
-    position: fixed;
     animation: tilting 3s infinite 3.1s; /* behold vippe-animation */
   }
 
