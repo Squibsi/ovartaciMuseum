@@ -4,8 +4,6 @@
 const brainPieces = document.querySelectorAll(".brainPiece");
 const tekstParagraf = document.querySelector("#puzzleProgressText p"); // tager fat i teksten  der viser hvor mange brikker der er.
 const logOutBtn = document.getElementById("logOutBtn"); // log ud knap
-const updateBtn = document.getElementById("updateBtn"); // opdater knap
-const homeIcon = document.getElementById("homeIcon"); // hjem ikon
 
 // ----- Funktioner til localStorage -----
 function getFoundPieces() {
@@ -93,23 +91,9 @@ function resetPuzzle() {
 // ----- Event listeners -----
 
 // hjem knap fører til forsiden
-if (homeIcon) {
-  homeIcon.addEventListener("click", () => {
-    window.location.href = "index.html";
-  });
-}
-
-// logger person ud og starter funktionen resetPuzzle
 if (logOutBtn) {
   logOutBtn.addEventListener("click", () => {
-    resetPuzzle();
-  });
-}
-
-// opdatering knap starter opdaterings funktionen updatePuzzle
-if (updateBtn) {
-  updateBtn.addEventListener("click", () => {
-    updatePuzzle(); // genopfrisker visningen (fx efter manuelt at have ændret localStorage)
+    window.location.href = "index.html";
   });
 }
 
