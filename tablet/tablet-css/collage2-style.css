@@ -320,7 +320,7 @@ ipad venlig (landskab)
     max-height: 80%;
     width: auto;
     height: auto;
-    animation: tilting 3s infinite 3.1s; /* behold vippe-animation */
+    /* animation: tilting 3s infinite 3.1s; behold vippe-animation */
   }
 
   /* Overlay: gør lidt mindre på iPad */
