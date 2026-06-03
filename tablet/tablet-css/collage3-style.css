@@ -88,18 +88,17 @@ body {
 
 .main h2 {
   font-family: var(--header-font--);
-  font-size: 2.5rem;
-  color: #2c3e66;
+  font-size: 2rem;
+  color: black;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .text {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1rem;
   background-color: white;
   padding: 1.5rem;
   border-radius: 30px;
-  margin-bottom: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -109,11 +108,11 @@ body {
 
 .figure {
   width: auto;
-  height: 23rem;
+  height: 20rem;
 }
 
 .imageContainer {
-  height: 23rem;
+  height: 20rem;
   margin-top: -1rem;
   margin-bottom: -1rem;
 }
