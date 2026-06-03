@@ -12,10 +12,6 @@
 const lastCutLayer = document.getElementById("revealLayerCut3");
 if (lastCutLayer) {
   lastCutLayer.addEventListener("animationend", () => {
-    // requestAnimationFrame(()=> {
-       
-   
-    // });
     document.querySelectorAll(".reveal-layer").forEach((layer) => {
       layer.remove();
     });
@@ -29,10 +25,6 @@ if (lastCutLayer) {
   }, 3200);
 }
 
-  // document.body.style.transform = "translateZ(0)";
-  // setTimeout(() => {
-  //   document.body.style.transform = "";
-  // },50);
 
 
 // ------------- knappper ------------- //

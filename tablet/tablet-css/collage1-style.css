@@ -31,10 +31,13 @@ body {
   min-height: 100vh;
 }
 
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
 .backgroundImg {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: auto;
   z-index: -1; /* så billedet ligger bag alt andet */
@@ -64,7 +67,7 @@ body {
 }
 /* Alle figur-containere gøres til absolut positionerede elementer */
 .figureDiv {
-  position: absolute;
+  position: fixed;
   width: auto;
   max-width: 30%; /* maksimal bredde i forhold til skærmen */
   z-index: 5;
@@ -80,22 +83,22 @@ body {
 /* Placering af hver figur (tilpas efter dit baggrundsbillede) */
 #figure1Hitboks {
   top: 45%;
-  left: 15%;
-  transform: translate(20%, -20%);
+  left: 5%;
+  transform: translate(50%, -50%);
   z-index: 5;
 }
 
 #figure2Hitboks {
   top: 60%;
-  left: 50%;
-  transform: translate(120%, -40%);
+  left: 60%;
+  transform: translate(50%, -50%);
   z-index: 4;
 }
 
 #figure3Hitboks {
   top: 35%;
-  left: 85%;
-  transform: translate(-250%, 50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
 
@@ -254,6 +257,8 @@ ipad venlig (landskab)
     object-fit: cover;
     width: 100%;
     height: 100%;
+    position: fixed;
+    inset: 0;
   }
 
   #homeIcon {
@@ -275,6 +280,7 @@ ipad venlig (landskab)
 
   /* Figurerne arver de absolute positioner fra før – men du kan eventuelt justere størrelsen */
   .figureDiv {
+    position: fixed;
     max-width: 25%; /* lidt mindre på stor skærm */
   }
 
