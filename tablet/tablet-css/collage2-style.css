@@ -78,6 +78,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
 }
 
 /* billede i div container */
@@ -89,20 +90,20 @@ html, body {
 }
 
 #figure1Hitboks {
-  position: relative;
+  /* position: relative; */
   z-index: 5;
 }
 
 #figure2Hitboks {
-  position: relative;
-  width: 100vw;
+  /* position: relative; */
+  /* width: 100vw; */
   z-index: 4;
 }
 
 #figure3Hitboks {
-  position: relative;
-  width: 100%;
-  bottom: 90vh;
+  /* position: relative; */
+  /* width: 100%; */
+  /* bottom: 90vh; */
   z-index: 3;
 }
 
@@ -266,6 +267,9 @@ ipad venlig (landskab)
     object-fit: cover;
     width: 100%;
     height: 100%;
+    position: fixed;
+    inset: 0;
+    z-index: -1;
   }
 
   /* Ikoner: placer pænt i hjørnerne i stedet for de vilde left/bottom værdier */
