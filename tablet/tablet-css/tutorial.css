@@ -75,14 +75,14 @@ body {
 }
 
 .howMain h2 {
-  font-family: "Bebas Neue", cursive;
-  font-size: 2.5rem;
-  color: #2c3e66;
+  font-family: var(--header-font--);
+  font-size: 2rem;
+  color: var(--text-color--);
   margin-bottom: 1rem;
 }
 
 .howText {
-  font-size: 1.2rem;
+  font-size: var(--font-size-medium);
   line-height: 1.5;
   background-color: white;
   padding: 1.5rem;
