@@ -1,6 +1,7 @@
 "use strict";
 
 
+// --------- Start side transition ----------
 
 // Laver animation mellem start-siden og scanner-siden
 document.getElementById("tried-before-btn").addEventListener("click", () => {
@@ -16,7 +17,7 @@ const helpBtn = document.getElementById("helpBtn");
 const onboarding = document.querySelector(".onboarding");
 const startContent = document.querySelector(".start-content");
 
-
+// Tilføjer klik-event til "hjælp mig i gang"-knappen
 helpBtn.addEventListener("click", () => {
     onboarding.style.display = "flex";
     startContent.style.display = "none";
@@ -25,7 +26,8 @@ helpBtn.addEventListener("click", () => {
     renderSteps();
 });
 
-// Array til instruktionsslides efter klik på "hjælp mig i gang"-knappen
+
+// --------- Array til instruktionsslides efter klik på "hjælp mig i gang"-knappen ---------
 
 const instructions = [
     {
@@ -46,6 +48,7 @@ const instructions = [
     }
 ];
 
+// --------- Introduktionsslides ---------
 
 let currentStep = 0
 
@@ -54,12 +57,13 @@ const instructionImg = document.getElementById("instructionImg");
 const nextBtn = document.getElementById("nextBtn");
 const dots = document.querySelectorAll(".dot");
 
-
+// Funktion til introduktionsslides
 function renderSteps() {
+    // Henter tekst og billede til det step brugeren er på
     instructionText.textContent = instructions[currentStep].text;
     instructionImg.src = instructions[currentStep].img;
 
-    // Reset
+    // Reset så animationerne spiller igen næste gang
     const overlay = document.getElementById("instructionOverlay");
     overlay.style.opacity = 0;
     overlay.classList.remove("fade-in");
@@ -91,6 +95,7 @@ function renderSteps() {
         instructionImg.classList.add("wide-image");
     }
 
+    // Hvis currentStep er det samme som længden af instruktionsarrayet - 1 skal knappen ændres fra "næste" til "start"
     if (currentStep === instructions.length - 1) {
         nextBtn.textContent = "Start";
     } else {
@@ -98,7 +103,10 @@ function renderSteps() {
     }
 }
 
+// Funktion til "næste"-knappen
 nextBtn.addEventListener("click", () => {
+    // Her tjekker vi om currentStep er mindre end længden på arrayet med steps.
+    // Hvis true -> gå til næste step, hvis false -> link til puslespilssiden.
     if (currentStep < instructions.length - 1) {
         currentStep++;
         renderSteps();
