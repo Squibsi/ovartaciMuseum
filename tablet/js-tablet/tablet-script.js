@@ -1,10 +1,18 @@
 "use strict";
-const track = document.getElementById("sliderTrack");
-const amountImages = 3; // <-- tæl hvor mange img du har i slideren
+// =====================================================================================================
+// Slide - animation
+//======================================================================================================
 
+// henter elementer fra Dom
+const track = document.getElementById("sliderTrack");
+const amountImages = 3; // tæller hvor mange img du har i slideren
+
+//currentIndex holder styr på, hvilket billede , der vises i slideren. altså den aktuelle state. derfor skal denne også være let, da den skifter.
 let currentIndex = 0;
 
 //slide animation
+// Her manipuleres css-egenskaber direkte i js.
+// transform: translateX(-100%) flytter elementet 100% til venstre
 function slideTo(index) {
   track.style.transform = `translateX(-${index * 100}%)`;
   currentIndex = index;
@@ -19,6 +27,7 @@ function nextSlide() {
 }
 
 // Start automatisk skift hvert 4. sekund
+// setInterval() kalder funktinon nextslide med et tidsinterval på 4000 ms
 setInterval(nextSlide, 4000);
 
 // Info-knap (fører til tutorial.html)
@@ -29,15 +38,11 @@ if (infoBtn) {
   });
 }
 
-const slideImage = document.querySelector("#slideImage");
-
-const slides = ["img/slide1.png", "img/slide2.png", "img/slide3.png"];
-
 // =====================================================================================================
 // login
 //======================================================================================================
 
-// Hent elementer
+// Hent elementer direkte fra index.html
 const overlay = document.getElementById("overlayCode");
 const generateBtn = document.getElementById("generateCodeButton");
 const closeBtn = document.querySelector(".closeBtn");
@@ -69,6 +74,8 @@ window.addEventListener("click", (event) => {
 });
 
 // Godkend-knap: Gem koden i localStorage
+// trim() fjerner mellemrum foran og bagved. så mellemrum ikke tæller med og skaber fejl
+//pieces.every((id) => id === "1" || id === "2" || id === "3") tester for gyldige brik id'er og returner true, på indtastet id'er.
 if (codeAcceptBtn) {
   codeAcceptBtn.addEventListener("click", () => {
     const Code = codeInput.value.trim();
@@ -95,7 +102,7 @@ if (codeAcceptBtn) {
   });
 }
 
-// Hvordan fungere dette? (inde i overlay) fører til siden tutorial.html
+// inde i overlay fører til siden tutorial.html
 if (codeHowItWorksBtn) {
   codeHowItWorksBtn.addEventListener("click", () => {
     window.location.href = "tutorial.html";
@@ -103,9 +110,10 @@ if (codeHowItWorksBtn) {
 }
 
 // Kode til at vise brikker alt efter koden som gæsten har indtastet
+//  Split konventere streng (tekst) til et array ved at klippe ved bindestreg.
 function loadPuzzleFromCode(Code) {
   const pieces = Code.split("-");
-
+  // informere i Console.log at brikker er blevet fundet.
   if (pieces.includes("1")) {
     console.log("Vis identitet");
   }
