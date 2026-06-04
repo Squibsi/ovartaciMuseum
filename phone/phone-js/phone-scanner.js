@@ -1,6 +1,6 @@
 "use strict";
 
-// Puslespilsbrikker
+//  --------- Puslespilsbrikker ------------
 // puzzle1, puzzle2 osv bruges til at lave qr-koderne.
 const puzzleData = {
     puzzle1: `Scanning gennemført! <br> Du har fundet: 
@@ -34,6 +34,8 @@ let scanning = false;
 startScanBtn.addEventListener("click", () => {
     document.getElementById("homeScreen").style.display = "none";
     document.getElementById("scannerScreen").style.display = "block";
+    // Sikrer at "annuller"-knappen altid bliver vist når man starter scanneren
+    cancelScanBtn.style.display = "block";
     // Kalder på startScanner funktionen længere nede, og starter QR-kode-scanneren
     startScanner();
 });
@@ -78,7 +80,7 @@ function startScanner() {
     );
 }
 
-// Her definerer vi hvad der skal ske når de har scannet en qr-kode
+//  ------------ Her definerer vi hvad der skal ske når de har scannet en qr-kode ------------
 // Når koden er scannet bliver "decodedText" til f.eks "puzzle1"
 function onScanSuccess(decodedText) {
     // Kun til test i konsollen
@@ -176,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// Reset puslespilet
+// ------------ Reset puslespilet -----------------
 const resetBtn = document.getElementById("resetBtn");
 
 // Fjerner puslespilsbrikkerne fra localStorage, så de ikke længere vises på skærmen
@@ -219,6 +221,8 @@ function handlePuzzle(id) {
     const popUp = document.getElementById("popUp");
     popUp.style.display = "block";
     popUp.classList.add("show");
+    // Skjuler "annuller"-knappen
+    cancelScanBtn.style.display = "none";
 
     const scanSuccesSound = new Audio ("../sounds/succes-soundeffect.mp3");
     scanSuccesSound.currentTime = 0;
@@ -233,7 +237,6 @@ function closePopUp() {
 
     popUp.classList.remove("show");
     // Lukker pop-op vinduet
-    // document.getElementById("popUp").style.display = "none";
     // Viser hjemmeskærmen igen
     setTimeout(() => {
         popUp.style.display = "none";
@@ -244,7 +247,7 @@ function closePopUp() {
 }
 
 
-// Generering af museumskoden
+// ------------- Generering af museumskoden ---------------
 function generateMuseumCode() {
     // hent de fundne brikker
     const found = getFoundPieces();
@@ -288,7 +291,7 @@ if(generateCodeBtn) {
     });
 }
 
-// Funktion til at lukke pop-op vinduet igen
+// ----------Funktion til at lukke pop-op vinduet igen------------
 const closeCodePopUpBtn = document.getElementById("closeCodePopUp");
 
 if(closeCodePopUpBtn) {

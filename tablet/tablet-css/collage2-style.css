@@ -97,7 +97,7 @@ body {
 }
 
 .figureImg {
-  animation: tilting 3s infinite 3.1s; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s*/
+  animation: tilting 3s infinite 3.1s, glowPulse 3s infinite ease-in-out; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s og tilføjer glød bag figurerne*/
 }
 /* --------------------------------------------------------------------------------------------------------
 overgangs animation
@@ -183,6 +183,21 @@ Animation - figurer animation
   }
 }
 
+
+/* Glød animation til figurerne */
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 1rem rgba(7, 172, 248, 0.9));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
+  }
+}
 /* --------------------------------------------------------------------------------------------------------
 Overlay
 -------------------------------------------------------------------------------------------------------- */
@@ -312,7 +327,7 @@ ipad venlig (landskab)
     max-height: 80%;
     width: auto;
     height: auto;
-    animation: tilting 3s infinite 3.1s; /* behold vippe-animation */
+    animation: tilting 3s infinite 3.1s, glowPulse 3s infinite ease-in-out; /* behold vippe-animation */
   }
 
   /* Overlay: gør lidt mindre på iPad */
