@@ -74,7 +74,7 @@ body {
   padding: 0 1rem;
 }
 
-.howMain h2 {
+.howMain h1 {
   font-family: var(--header-font--);
   font-size: 2rem;
   color: var(--text-color--);

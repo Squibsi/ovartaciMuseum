@@ -31,7 +31,7 @@
 /* generelle styles */
 body {
   font-family:
-    Bebas Neue,
+    "Bebas Neue",
     sans-serif;
   background-color: #c8d4e3;
   color: #333;
@@ -134,7 +134,7 @@ p {
   margin: 0.5rem;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
-  font-weight: semi-bold;
+  font-weight: bold;
   border-radius: 40px;
   transition: background 0.2s;
 }
@@ -147,7 +147,7 @@ p {
   margin: 0.5rem;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
-  font-weight: semi-bold;
+  font-weight: bold;
   border-radius: 40px;
   transition: background 0.2s;
 }

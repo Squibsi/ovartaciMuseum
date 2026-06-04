@@ -141,7 +141,7 @@ Styling af hele onboarding/instruktionssiderne
     text-align: center;
     font-size: var(--font-size-xxl);
     font-family: var(--text-font--);
-    font-weight: light;
+    font-weight: normal;
     margin-top: 3rem;
     min-height: 6rem;
 }
