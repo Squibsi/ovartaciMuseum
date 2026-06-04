@@ -57,12 +57,8 @@ body {
   width: 4rem; /* bredde, der matcher right-area (justér efter behov) */
 }
 
-.logo {
-  flex-shrink: 0; /* forhindrer at logoet krymper */
-}
-
 .logoImg {
-  height: 5rem;
+  height: 4rem;
   width: auto;
 }
 
@@ -77,18 +73,10 @@ body {
   background-color: var(--secondary-color--);
 }
 
-/* icon billeder */
-#homeIcon,
-#backIcon {
+/* ikoner */
+#homeIcon {
   height: 3rem;
   width: auto;
-}
-
-#backIcon {
-  display: flex;
-  bottom: 3rem;
-  left: -10rem;
-  position: relative;
 }
 
 /* Hovedindhold */
@@ -96,23 +84,21 @@ body {
   max-width: 800px;
   margin: 2rem auto;
   text-align: center;
-  padding: 0 1rem;
 }
 
 .main h2 {
   font-family: var(--header-font--);
-  font-size: 2.5rem;
-  color: #2c3e66;
+  font-size: 2rem;
+  color: black;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .text {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1rem;
   background-color: white;
   padding: 1.5rem;
   border-radius: 30px;
-  margin-bottom: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -122,7 +108,13 @@ body {
 
 .figure {
   width: auto;
-  height: 23rem;
+  height: 20rem;
+}
+
+.imageContainer {
+  height: 20rem;
+  margin-top: -1rem;
+  margin-bottom: -1rem;
 }
 /* Forstået-knap */
 .Btnunderstood {
