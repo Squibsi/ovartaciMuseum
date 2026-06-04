@@ -67,7 +67,8 @@ body {
 .figureImg {
   max-width: 100%;
   height: auto;
-  animation: tilting 3s infinite 3.1s;
+  animation: tilting 3s infinite 3.1s, glowPulse 3s infinite ease-in-out;
+
 }
 
 /* Placering af hver figur (tilpas efter dit baggrundsbillede) */
@@ -156,6 +157,20 @@ Animation - overgangs animation
   }
 }
 
+/* Glød animation til figurerne */
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 1rem rgba(7, 172, 248, 0.9));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
+  }
+}
 /* --------------------------------------------------------------------------------------------------------
 Animation - figurer animation
 -------------------------------------------------------------------------------------------------------- */
