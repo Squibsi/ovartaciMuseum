@@ -34,6 +34,8 @@ let scanning = false;
 startScanBtn.addEventListener("click", () => {
     document.getElementById("homeScreen").style.display = "none";
     document.getElementById("scannerScreen").style.display = "block";
+    // Sikrer at "annuller"-knappen altid bliver vist når man starter scanneren
+    cancelScanBtn.style.display = "block";
     // Kalder på startScanner funktionen længere nede, og starter QR-kode-scanneren
     startScanner();
 });
@@ -219,6 +221,8 @@ function handlePuzzle(id) {
     const popUp = document.getElementById("popUp");
     popUp.style.display = "block";
     popUp.classList.add("show");
+    // Skjuler "annuller"-knappen
+    cancelScanBtn.style.display = "none";
 
     const scanSuccesSound = new Audio ("../sounds/succes-soundeffect.mp3");
     scanSuccesSound.currentTime = 0;

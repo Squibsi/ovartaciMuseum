@@ -4,7 +4,7 @@
 // --------- Start side transition ----------
 
 // Laver animation mellem start-siden og scanner-siden
-document.getElementById("tried-before-btn").addEventListener("click", () => {
+document.getElementById("triedBeforeBtn").addEventListener("click", () => {
     document.body.classList.add("fade-out");
 
     setTimeout(() => {
@@ -15,7 +15,7 @@ document.getElementById("tried-before-btn").addEventListener("click", () => {
 
 const helpBtn = document.getElementById("helpBtn");
 const onboarding = document.querySelector(".onboarding");
-const startContent = document.querySelector(".start-content");
+const startContent = document.querySelector(".startContent");
 
 // Tilføjer klik-event til "hjælp mig i gang"-knappen
 helpBtn.addEventListener("click", () => {
