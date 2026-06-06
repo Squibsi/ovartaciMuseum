@@ -291,8 +291,6 @@ Dette er blot et eksempel på hvordan ORCA-modellen kan hjælpe med at skabe JS-
 
 ---
 ## JS Data Struktur
-*Forklar hvordan JS data er organiseret (er det med arrays? Eller en ekstern json fil?) Forklar strukturen, hvad information det indeholder og hvordan det virker. Husk at identificere data typer (boolean, string, number).*
-
 Til dette projekt er JS data orginisret med arrays og object-literal. Da objekterne i koden er nogle gruppen selv har oprette gav det ikke mening at anvende eksterne JSON-filer.
 
 #### Arrays
@@ -359,12 +357,152 @@ I ovenstående eksempel er datatyperne således:
 * **puzzle1, puzzle2, puzzle3** = keys, men de betragtes som **strings**, derfor er de ofte kaldet **string-keys**.
 * **Alt skrevet i " `` (backtics) "** = values, som her er strings/template literal.
 
-
-
 ---
 ## Kode Highlights (herunder brug af localStorage)
 *Udvælg nogle kodeeksempler og forklar kort hvad de gør.*
-**Gerne kode mht. LocalStorage**
+**Se følgende filer:**
+*tablet-script.js*
+*mainpage-script.js*
+*phone-scanner.js*
+*og deres tilhørende html og css filer*
+
+I følgende afsnit vil der blive gennemgået kodestykker fra HTML, CSS og JavaScript, med fokus på anvendelsen af localStorage i dette projekt. Der opdeles efter mobil og tablet løsningen.
+
+Overordnet bruges localStorage i dette projekt til at gemme hvilke puslespilsbrikker brugeren har fundet på museet. Det gemmer deres fremskridt, så de kan fortsætte med at indsamle koder, senere eller på et nyt besøg. Det er dog valgt at give dem muligheden for at starte forfra ved at "tømme" localStorage, dette forklares senere.
+
+### Brug af localStorage til tablet (HTML, CSS og JS)
+**Følgende er fra filerne:** `index.html`(i tablet mappen), `mainpage.html`, `mainpage-style.css`, `tablet-style.css`, `mainpage-script.js` og `tablet-script.js`.
+
+**<font color="orange">HTML</font>**
+
+`index.html`(i tablet mappen)
+
+Til pop-op vinduet der indeholder knappen der bruges til localStorage skal følgende HTML elementer hentes:
+* **overlayCode**, som er div'en der indeholder pop-op vinduet hvor brugeren kan indtaste deres kode fra deres mobil.
+* **generateCodeBtn**, som er "skriv kode"-knappen der skal åbne pop-op vinduet når brugeren klikker på den.
+* **closeBtn**, som skal lukke pop-op vinduet når brugeren klikker på den.
+* **codeAcceptBtn**, som er "Godkend"-knappen der bruges til at gemme brugerens kode i localStorage.
+* **codeHowItWorksBtn**, som åbner en ny side med en forklaring til brugeren om hvordan produktet fungerer.
+* **codeInput**, som er feltet hvor brugeren kan indtaste sin kode.
+
+Til forklaring af localStorage er det hovedsagligt `codeInput` og `codeAcceptBtn` der skal anvendes.
+
+`codeInput` er indsat som `<input type="text" id="codeInput" placeholder="_ _ _ _">`.
+* Input, laver et felt som brugeren kan skrive i, her et tekstfelt da type="text".
+* Id giver feltet id'et "codeInput", som bruges til at tilgå tekstfeltet med JavaScript og CSS.
+* Placeholder viser "_ _ _ _" når brugeren åbner pop-op vinduet men før de har skrevet i feltet.
+
+`codeAcceptBtn` er indsat som `<button id="codeAcceptBtn">Godkend</button>`.
+* Button laver en knap.
+* Id'et giver button-tagget id'et "codeAcceptBtn".
+* Mellem >< skrives teksten der skal stå på knappen, her "Godkend".
+
+**<font color="dodgerblue">CSS</font>**
+
+`tablet-style.css`
+
+Til styling af `codeInput` og `codeAcceptBtn` er følgende kode anvendt:
+
+**Styling af `codeInput`**
+
+```
+#codeInput {
+  width: 90%;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+  border: 2px solid #ccc;
+  border-radius: 2rem;
+  font-family: inherit;
+}
+```
+* width gør at feltet fylder 90% af pop-op vinduet.
+* padding giver luft på alle indersider af tekstefeltet på 1 rem.
+* margin giver luft på ydersiden af tekstfeltet med 1 rem i top og bund og 0 rem på venstre og højre side.
+* font-size ændrer skriftsørrelsen i tekstfeltet til 1.2 rem.
+* text-align: center centrerer teksten i tekstfeltet.
+* border giver tekstfeltet en border, her på 2px bredde, den er en solid linje og har farven #ccc.
+* border-radius giver her tekstefeltet afrundede hjørner på 2 rem.
+* font-family: inherit, gør at tekstfeltet har samme font-family som dens parent. Den sidste parent her med en defineret font-family er "body", som har font-family "Bebas Neue", sans-serif.
+
+
+**Styling af `codeAcceptBtn`**
+
+```
+.codeButtons button {
+  background-color: #52805a;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  margin: 5px;
+  border-radius: 40px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+}
+```
+`codeAcceptBtn` er stylet under klassen `codeButtons` hvor der direkte tilgås alle button tags under denne klasse med `button`.
+
+* background-color sætter baggrundsfarven til #52805a.
+* color: white, gør tekst på knappen hvid.
+* border: none, fjerner border fra knappen.
+* padding giver her lust på indersiden af knappen med 8px i top og bund og 20px i venstre og højre side.
+* margin giver luft på ydersiden af knappen, her med 5px.
+* border-radius giver knappen afrundede hjørner, her med 40 px.
+* font-family giver teksten på knappen dens font, her "Inter", sans-serif.
+* font-size angiver størrelsen på teksten, her 0.9 rem. 
+
+**<font color="yellow">JavaScript</font>**
+
+I tablettens JavaScripts er der 2 filer der anvender localStorage:
+
+`tablet-script.js` og `mainpage-script.js`
+
+da det er her brugeren skal kunne tilgå de puslespilsbrikker de har fundet undervejs i museet.
+
+**Tablet-script.js filen**
+
+Her bliver localStorage anvendt i:
+
+```
+if (codeAcceptBtn) {
+  codeAcceptBtn.addEventListener("click", () => {
+    const Code = codeInput.value.trim();
+    if (Code === "") {
+      alert("Indtast venligst en kode.");
+      return;
+    }
+    // Split koden ved "-" for at få array af brik-id'er (f.eks. "1-2-3" -> ["1","2","3"])
+    const pieces = Code.split("-");
+    // Valider at alle elementer er "1", "2" eller "3" (eller andre gyldige id'er)
+    const valid = pieces.every((id) => id === "1" || id === "2" || id === "3");
+    if (!valid || pieces.length === 0) {
+      alert(
+        "Ugyldig kode. Koden består af tal adskilt af bindestreg, f.eks. 1-2-3",
+      );
+      return;
+    }
+    // Gem koden i localStorage
+    localStorage.setItem("FoundPieces", JSON.stringify(pieces));
+    // Omdiriger til mainpage (justér stien efter dit projekt)
+    window.location.href = "../tablet/mainpage.html";
+    // console
+    console.log("Gemmer i localStorage:", JSON.stringify(pieces));
+  });
+}
+
+
+```
+
+Kort forklaret starter koden med at tjekke om `codeAcceptBtn` ("Godkend"-knappen) eksisterer i JavaScript, gør den det, kører den koden. Der tilføjes en `click-event` til `codeAcceptBtn`, som køres når brugeren klikker på "Godkend"-knappen. I `click-eventet` gemmes brugerens indtastede kode fra `codeInput` i en variabel kaldet `code`. Her tilføjes `trim()` for at fjerne eventuelle mellemrum, som brugeren kunne have indtastet ved et uheld, der kunne skabe fejl. Hvis `code` er tom (" "), får brugeren en besked om at de mangler at indtaste en kode, og funktionen stoppes ved `return`.
+
+Som det næste deles den indtastede kode op ved brug af `split("-")` som omdanner brugerens kode fra tekst til et array af brik id'er f.eks. bliver "1-2-3" til ["1", "2", "3"], som gemmes i variablen `pieces`. Hernæst valideres arrayet ved brug af `.every()`, som tjekker om alle elementer i et array opfylder en bestemt betingelse. Her er betingelsen at id'erne skal være enten "1", "2" eller "3". Er de ikke det eller hvis `pieces` arrayets længde er lig 0, får brugeren en besked om at koden er ugyldig og funktionen stoppes med `return`.
+
+Har brugeren tastet en gyldig kode, gemmes denne kode, det vil sige de puslespilsbrikker de har fundet i localStorage med `localStorage.setItem` under nøglenavnet `FoundPieces`. `JSON.stringify(pieces)` bruges til at konvertere arrayet `pieces` som indeholder brikkernes id'er, til en tekst-string, da localStorage kun kan læse tekst.
+
+Til sidst omdirigeres brugeren til næste side med `window.location.href = "../tablet/mainpage.html";`, som her er siden der viser hvilke brikker brugeren har fundet, hvor de kan fortsætte deres udforskning af produktet.
+
+### Brug af localStorage til mobil (HTML, CSS og JS)
 
 ---
 ## JS Biblioteker
