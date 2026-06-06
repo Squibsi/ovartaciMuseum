@@ -1,9 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* Variabler som kan bruges gennem CSS*/
 :root {
   /* Farver */
@@ -25,7 +19,16 @@
   --font-size-xxl: 28px;
 }
 
+/* =====================================================================================================
+ Body
+==================================================================================================== */
 /* general styling for body*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--primary-color--);
   min-height: 100vh;
@@ -46,6 +49,9 @@ body {
   object-fit: cover; /* Hele billedet synligt */
 }
 
+/* =====================================================================================================
+ Knapper
+==================================================================================================== */
 /* ikoner */
 #homeIcon {
   height: 3rem;
@@ -57,7 +63,10 @@ body {
   position: fixed;
 }
 
-/* billede container hitboks */
+/* =====================================================================================================
+ styling af figurene og deres hitbokse
+==================================================================================================== */
+
 .figureDiv {
   width: 25rem;
   height: auto;
@@ -75,6 +84,8 @@ body {
   height: auto;
 }
 
+/* figure er i hitboks, for at have et større område touch kan registere */
+/* index hjælper med at have hitbokse helt fremme og klikbare */
 #figure1Hitboks {
   top: 45%;
   left: 15%;
@@ -96,13 +107,52 @@ body {
   z-index: 3;
 }
 
+/* =====================================================================================================
+ animation af figurerne
+==================================================================================================== */
+/* placere animationen på figurene */
 .figureImg {
-  animation: tilting 3s infinite 3.1s, glowPulse 3s infinite ease-in-out; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s og tilføjer glød bag figurerne*/
+  animation:
+    tilting 3s infinite 3.1s,
+    glowPulse 3s infinite ease-in-out; /* zoomer ind først og derefter starter tilt animation, tilt animation forsinkes med 0.4s og tilføjer glød bag figurerne*/
 }
-/* --------------------------------------------------------------------------------------------------------
-overgangs animation
--------------------------------------------------------------------------------------------------------- */
 
+/* denne animation får figurerne til at bevæge sig */
+@keyframes tilting {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  } /* vipper til den ene side */
+  75% {
+    transform: rotate(-4deg);
+  } /* vipper til den anden side */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Glød animation til figurerne */
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 1rem rgba(7, 172, 248, 0.9));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
+  }
+}
+
+/* =====================================================================================================
+ animation - overgangs animation
+==================================================================================================== */
+
+/* dette ligger cutout effekten bag figurene gennem index */
 #revealLayerCut1 {
   z-index: 9;
 }
@@ -115,9 +165,6 @@ overgangs animation
   z-index: 7;
 }
 
-/* --------------------------------------------------------------------------------------------------------
-Animation - overgangs animation
--------------------------------------------------------------------------------------------------------- */
 /* Reveal-lag – dækker hele skærmen */
 .reveal-layer {
   position: fixed;
@@ -152,6 +199,7 @@ Animation - overgangs animation
   animation-delay: 1.2s;
 }
 
+/* dette er selve animationen zoomForward */
 @keyframes zoomForward {
   0% {
     opacity: 0;
@@ -163,44 +211,9 @@ Animation - overgangs animation
   }
 }
 
-/* --------------------------------------------------------------------------------------------------------
-Animation - figurer animation
--------------------------------------------------------------------------------------------------------- */
-
-/* denne animation får figurerne til at bevæge sig */
-@keyframes tilting {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(4deg);
-  } /* vipper til den ene side */
-  75% {
-    transform: rotate(-4deg);
-  } /* vipper til den anden side */
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-
-/* Glød animation til figurerne */
-@keyframes glowPulse {
-  0% {
-    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
-  }
-
-  50% {
-    filter: drop-shadow(0 0 1rem rgba(7, 172, 248, 0.9));
-  }
-
-  100% {
-    filter: drop-shadow(0 0 0.2rem rgba(48, 82, 254, 0.3));
-  }
-}
-/* --------------------------------------------------------------------------------------------------------
-Overlay
--------------------------------------------------------------------------------------------------------- */
+/* =====================================================================================================
+ Overlay
+==================================================================================================== */
 
 .hiddenOverlay {
   display: none; /* Skjult som standard */
@@ -215,7 +228,7 @@ Overlay
   align-items: center;
 }
 
-/* overlay content (den hvide boks) */
+/* overlay content */
 .hiddenOverlayContent {
   display: flex;
   flex-direction: row;
@@ -261,9 +274,10 @@ Overlay
   padding: 2rem;
 }
 
-/* --------------------------------------------------------------------------------------------------------
-ipad venlig (landskab)
--------------------------------------------------------------------------------------------------------- */
+/* =====================================================================================================
+ ipad venlig (landskab)
+==================================================================================================== */
+
 /* iPad Air – landskabsvisning (typisk 1180px bredde) */
 @media (min-width: 1024px) and (orientation: landscape) {
   /* Baggrundsbillede: fyld skærmen uden tomme striber (cropper lidt) */
@@ -276,7 +290,7 @@ ipad venlig (landskab)
     z-index: -1;
   }
 
-  /* Ikoner: placer pænt i hjørnerne i stedet for de vilde left/bottom værdier */
+  /* Ikoner: placeret i hjørnet */
   #homeIcon {
     position: fixed;
     top: 2rem;
@@ -286,7 +300,7 @@ ipad venlig (landskab)
     z-index: 20;
   }
 
-  /* Figur-containere: skift til absolut placering */
+  /* figure blevet rykket en anelse på for at passe på Ipad*/
   .figureDiv {
     position: fixed;
     top: 50%;
@@ -296,7 +310,7 @@ ipad venlig (landskab)
     height: auto;
   }
 
-  /* Specifikke positioner for hver figur (tilpas efter dit baggrundsbillede) */
+  /* Specifikke positioner for hver figur  */
   #figure1Hitboks {
     top: 45%;
     left: 15%;
@@ -318,7 +332,7 @@ ipad venlig (landskab)
     transform: translate(-50%, -50%);
     z-index: 3;
     width: auto;
-    bottom: auto; /* fjern den gamle bottom */
+    bottom: auto;
   }
 
   /* Selve figur-billedet: tilpas størrelse */
@@ -327,14 +341,16 @@ ipad venlig (landskab)
     max-height: 80%;
     width: auto;
     height: auto;
-    animation: tilting 3s infinite 3.1s, glowPulse 3s infinite ease-in-out; /* behold vippe-animation */
+    animation:
+      tilting 3s infinite 3.1s,
+      glowPulse 3s infinite ease-in-out; /* behold vippe-animation */
   }
 
   /* Overlay: gør lidt mindre på iPad */
   .hiddenOverlayContent {
     max-width: 80%;
     padding: 1.5rem;
-    flex-direction: column; /* på iPad kan billede og tekst stables lodret */
+    flex-direction: column;
   }
 
   .overlayText {
