@@ -1,6 +1,9 @@
 # ExD Interactive Experience Eksamen
 
 ## Museum Ovartaci - Introduktion
+
+Dette projekt består af et produkt i form af en QR-scanner, museets gæster kan tilgå på deres mobil, til at indsamle puslespilsbrikker i form af QR-koder gemt i museets områder. Dernæst skal gæsterne kunne generere en kode som kan indtastes på en tablet, der viser hvilke brikker gæsten har fundet, og giver dem mulighed for at få mere information om Ovaratci og hans værker.
+
 I denne fil vil der blive reflekteret og dokumenteret over hvordan der er kodet og samarbejdet gennem GitHub i løbet af projektet.
 Der fremvises udvalgte stykker af koden, navngivningskonventioner, mappestruktur og validering af koden.
 Dette gøres for at skabe et samlet overblik over udviklingen af produktets kode og samarbejdet herunder.
@@ -119,10 +122,10 @@ function startScanner()
 ```
 function onScanSuccess(decodedText)
 ```
-Her oprettedes der 2 funktioner. Den første `function startScanner()`, er funktionen til at starte QR-scanneren mens den anden `function onScanSuccess(decodedText)` fortæller hvad der skal ske efter en succesfuld scanning af en QR-kode.
+Her blev der oprettet 2 funktioner. Den første `function startScanner()`, er funktionen til at starte QR-scanneren mens den anden `function onScanSuccess(decodedText)` fortæller hvad der skal ske efter en succesfuld scanning af en QR-kode.
 
 *For dybere forklaring af hvad disse funktioner gør i koden, se:
-[Prototypeovervejelser Figma Punkt 03](https://www.figma.com/design/gmecL3yCha6itCPNBn5h5N/IE?node-id=526-115&p=f&t=EAwvEKH3zfN7GxuS-0)*
+[Prototypeovervejelser Figma Punkt 03](https://www.figma.com/design/gmecL3yCha6itCPNBn5h5N/IE?node-id=589-111&t=E35UfGNg82EtBD1y-0)*
 
 Dette har skabt et tydeligt overblik over hvilke kode-elementer der arbejdes med i funktioner og variabler, og også tydeliggjort hvad de enekelte funktioner gør.
 
@@ -239,7 +242,7 @@ Det vil sige "hvorfor og hvordan". Det er tilgangen til projektet.
 ORCA står for:
 
 * O - Object
-* R - Relation
+* R - Relationships
 * C - Call-To-Action
 * A - Attributes
 
@@ -291,7 +294,7 @@ Dette er blot et eksempel på hvordan ORCA-modellen kan hjælpe med at skabe JS-
 
 ---
 ## JS Data Struktur
-Til dette projekt er JS data orginisret med arrays og object-literal. Da objekterne i koden er nogle gruppen selv har oprette gav det ikke mening at anvende eksterne JSON-filer.
+Til dette projekt er JS data organisret med arrays og object-literal. Da objekterne i koden er nogle gruppen selv har oprette gav det ikke mening at anvende eksterne JSON-filer.
 
 #### Arrays
 Til mobil-løsningen er det valgt at lave introduktionsslides, også kaldet onboarding, der forklarer brugeren hvordan produktet fungerer. <br>
@@ -359,19 +362,15 @@ I ovenstående eksempel er datatyperne således:
 
 ---
 ## Kode Highlights (herunder brug af localStorage)
-*Udvælg nogle kodeeksempler og forklar kort hvad de gør.*
-**Se følgende filer:**
-*tablet-script.js*
-*mainpage-script.js*
-*phone-scanner.js*
-*og deres tilhørende html og css filer*
 
 I følgende afsnit vil der blive gennemgået kodestykker fra HTML, CSS og JavaScript, med fokus på anvendelsen af localStorage i dette projekt. Der opdeles efter mobil og tablet løsningen.
 
 Overordnet bruges localStorage i dette projekt til at gemme hvilke puslespilsbrikker brugeren har fundet på museet. Det gemmer deres fremskridt, så de kan fortsætte med at indsamle koder, senere eller på et nyt besøg. Det er dog valgt at give dem muligheden for at starte forfra ved at "tømme" localStorage, dette forklares senere.
 
+
 ### Brug af localStorage til tablet (HTML, CSS og JS)
-**Følgende er fra filerne:** `index.html`(i tablet mappen), `mainpage.html`, `mainpage-style.css`, `tablet-style.css`, `mainpage-script.js` og `tablet-script.js`.
+
+**Følgende er fra filerne:** `index.html`(i tablet mappen), `tablet-style.css`, `mainpage-script.js` og `tablet-script.js`.
 
 **<font color="orange">HTML</font>**
 
@@ -498,11 +497,85 @@ Kort forklaret starter koden med at tjekke om `codeAcceptBtn` ("Godkend"-knappen
 
 Som det næste deles den indtastede kode op ved brug af `split("-")` som omdanner brugerens kode fra tekst til et array af brik id'er f.eks. bliver "1-2-3" til ["1", "2", "3"], som gemmes i variablen `pieces`. Hernæst valideres arrayet ved brug af `.every()`, som tjekker om alle elementer i et array opfylder en bestemt betingelse. Her er betingelsen at id'erne skal være enten "1", "2" eller "3". Er de ikke det eller hvis `pieces` arrayets længde er lig 0, får brugeren en besked om at koden er ugyldig og funktionen stoppes med `return`.
 
-Har brugeren tastet en gyldig kode, gemmes denne kode, det vil sige de puslespilsbrikker de har fundet i localStorage med `localStorage.setItem` under nøglenavnet `FoundPieces`. `JSON.stringify(pieces)` bruges til at konvertere arrayet `pieces` som indeholder brikkernes id'er, til en tekst-string, da localStorage kun kan læse tekst.
+Har brugeren tastet en gyldig kode, gemmes denne kode, det vil sige de puslespilsbrikker de har fundet, i localStorage med `localStorage.setItem` under nøglenavnet `FoundPieces`. `JSON.stringify(pieces)` bruges til at konvertere arrayet `pieces` som indeholder brikkernes id'er, til en tekst-string, da localStorage kun kan læse tekst.
 
 Til sidst omdirigeres brugeren til næste side med `window.location.href = "../tablet/mainpage.html";`, som her er siden der viser hvilke brikker brugeren har fundet, hvor de kan fortsætte deres udforskning af produktet.
 
+
+**Mainpage-script.js filen**
+
+Her bliver localStorage anvendt i:
+```
+function getFoundPieces() {
+  const saved = localStorage.getItem("FoundPieces");
+  if (saved) {
+    return JSON.parse(saved);
+  }
+  return []; // ingen brikker fundet endnu
+}
+
+function saveFoundPieces(pieces) {
+  localStorage.setItem("FoundPieces", JSON.stringify(pieces));
+}
+```
+og
+```
+function resetPuzzle() {
+  localStorage.removeItem("FoundPieces");
+  updatePuzzle();
+  console.log("Spillet er nulstillet");
+}
+```
+
+Det første stykke kode bruges til at hente puslespilsbrikkerne som ligger gemt i localStorage, mens i det sidste bruges localStorage til at resette den indtastede kode, så næste bruger kan komme til. Brikkerne er gemt via den indtastede kode brugeren har skrevet, som forklaret i sidste afsnit.
+
+I det første stykke oprettes en konstant variabel `saved`, som henter brikkernes ID'er fra `localStorage`. Der tjekkes om der er data i `localStorage` med `if (saved)`. Er der det, bliver dette statement true, og data returneres som et array med `JSON.parse(saved)`. Er `localStorage` tomt, returneres et tomt array med `return []`. <br> Funktionen `saveFoundPieces(pieces)`, bruges til at gemme arrayet med brikkernes ID'er i `localStorage`, ved hjælp af `localStorage.setItem()`, så oplysningerne kan hentes igen senere. Arrayet bliver igen lavet til string med `JSON.stringify(pieces)`, da `localStorage` kun kan læse tekst.
+
+I det sidste stykke oprettes funktionen `resetPuzzle()`, som bruges til at slette de gemte brik ID'er fra `localStorage`, så produktet er klar til næste bruger. Dette gøres ved at fjerne brikkernes ID'er fra localStorage med `localStorage.removeItem("FoundPieces)`. Dernæst kaldes funktionen `updatePuzzle`, som opdaterer puslespillets visning.
+
+
 ### Brug af localStorage til mobil (HTML, CSS og JS)
+
+**Følgende er fra filen `phone-scanner.js`.**
+
+**<font color="yellow">JavaScript</font>**
+
+Her bliver localStorage brugt i:
+
+```
+// Funktion til localStorage
+function getFoundPieces() {
+    // Henter "FoundPieces" fra localStorage og gemmer det i const "saved"
+    const saved = localStorage.getItem("FoundPieces");
+
+    // Hvis der findes data i "saved", konvereteres JSON til array/objekt og returneres.
+    if(saved) {
+        return JSON.parse(saved);
+    }
+    // Hvis der ikke findes data i "saved", returneres et tomt array.
+    return [];
+}
+
+// Gemmer brikkerne i localStorage.
+function saveFoundPieces(pieces) {
+    localStorage.setItem("FoundPieces", JSON.stringify(pieces));
+}
+```
+og
+```
+function resetPuzzle(){
+    localStorage.removeItem("FoundPieces");
+    // Kører funktionen renderPuzzle igen, efter localStorage er tømt.
+    // Nu findes brikkerne ikke i localStorage længere så brikkerne bliver hvide og process teksten opdateres til 0. 
+    renderPuzzle();
+}
+```
+
+I `phone-scanner.js` bruges `localStorage` til at gemme brik-ID'erne, så det gemmes når brugerne har scannet en QR-kode, på samme måde som det bruges til at gemme brik-ID'erne i `mainpage-script.js` som beskrevet før. Den eneste forskel er at `function resetPuzzle()` ikke kalder på `updatePuzzle()` funktionen men i stedet `renderPuzzle()`, som er den funktion der styrer visningen af puslespillet på mobilen.
+
+*For dybere forklaring af hvordan localStorage gemmer brikkerne i et array og viser de korrekte brikker på skærmen se: [Prototypeovervejelser Figma Punkt 07](https://www.figma.com/design/gmecL3yCha6itCPNBn5h5N/IE?node-id=654-162&t=luw8YoITCG5hLTmF-0)*
+
+
 
 ---
 ## JS Biblioteker
@@ -544,51 +617,9 @@ Validering af **CSS** : [CSS Validation Service](https://jigsaw.w3.org/css-valid
 ### Beviser på validering
 
 Alle **HTML** og **CSS** filer er valideret i slutningen af projektet. Beviser for dette samt forklaring af eventuelle warnings kan ses i følgende fil: 
-[Prototypeovervejeler Figma Punkt 09](https://www.figma.com/design/gmecL3yCha6itCPNBn5h5N/IE?node-id=526-115&p=f&t=oYFERcpZDUtKPxfV-0)
+[Prototypeovervejeler Figma Punkt 09](https://www.figma.com/design/gmecL3yCha6itCPNBn5h5N/IE?node-id=546-384&t=AiFRWWNF4wF68HR9-0)
 
 
+## Afrunding
 
-
-
-
-
-
-
-
-
-## Kodeeksempler
-### Kode eksempel 1
-```
-Cool kode 1
-```
-
-### Kodeeksempel 2
-```
-Cool Kode 2
-```
-
-## Billede
-_Billede af Ovartaci_
-
-## Citat med kilde
->
-"Citat"
-
-_-person der udtaler sig_
->
-Quote: **kilde**.
-
-## Blocks of code
-```
-let message = 'Hello world';
-alert(message);
-```
-## Inline code
-This web site is using `markedjs/marked`.
-
-## Tables
-| Left columns  | Right columns |
-| ------------- |:-------------:|
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
+Denne fil har skabt et tydeligt og struktureret overblik over samarbejdet under kodning, udvalgte kodestykker med fokus på localStorage, anvendelse af relevante modeller og hvordan gruppen har sikret forståelse og læsbarhed af koden gennem projektet.
