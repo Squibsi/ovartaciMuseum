@@ -298,7 +298,7 @@ Til dette projekt er JS data organisret med arrays og object-literal. Da objekte
 
 #### Arrays
 Til mobil-løsningen er det valgt at lave introduktionsslides, også kaldet onboarding, der forklarer brugeren hvordan produktet fungerer. <br>
-Dette er gjort ved at oprette et array der indeholder instruktionerne brugeren skal bruge samt en visualisering i form af et billede.
+Dette er gjort ved at oprette et array der indeholder instruktionerne brugeren skal bruge samt en visualisering i form af et billede. Her er arrayet `const instructions[]`, hvor `instructions` er navnet men `[]` viser at de er et array.
 
 ```
 const instructions = [
@@ -369,6 +369,8 @@ Overordnet bruges localStorage i dette projekt til at gemme hvilke puslespilsbri
 
 
 ### Brug af localStorage til tablet (HTML, CSS og JS)
+
+Følgende kodeeksempel omhandler hvordan `localStorage` anvendes på tabletten, til at tilgå de brikker brugeren har fundet, ved aflæsning af den kode brugeren indtaster på skærmen.
 
 **Følgende er fra filerne:** `index.html`(i tablet mappen), `tablet-style.css`, `mainpage-script.js` og `tablet-script.js`.
 
@@ -535,6 +537,8 @@ I det sidste stykke oprettes funktionen `resetPuzzle()`, som bruges til at slett
 
 
 ### Brug af localStorage til mobil (HTML, CSS og JS)
+
+Følgende kodeeksempel omhandler hvordan `localStorage` anvendes på mobilen til at gemme hvilke brikker brugeren har fundet på museet.
 
 **Følgende er fra filen `phone-scanner.js`.**
 
