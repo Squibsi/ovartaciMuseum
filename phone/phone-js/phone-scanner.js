@@ -172,7 +172,7 @@ function addPiece(brainId) {
     }
 }
 
-// Sørger for at opdatere/vise psulespillet efter siden er loaded
+// Sørger for at opdatere/vise puslespillet efter siden er loaded
 document.addEventListener("DOMContentLoaded", () => {
     renderPuzzle();
 });

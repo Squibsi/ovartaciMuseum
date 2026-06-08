@@ -196,7 +196,7 @@ Fra `phone-scanner.css`
 }
 ```
 ---
-### <font color="yellow">JavaScript</font>
+### <font color="gold">JavaScript</font>
 I JavaScript er kommentarer anvendt lidt anderledes. De er brugt til at lave sektioner i koden, men også oftere brugt til hver enkelte linje kode for at gøre det lettere at navigere og for at alle gruppemedlemmer forstår hvad koden gør. Det har skabt et overblik over kodens funktion, selv hvis det er et andet gruppemedlem der har skrevet den. 
 
 Eksempelvis:
@@ -451,7 +451,7 @@ Til styling af `codeInput` og `codeAcceptBtn` er følgende kode anvendt:
 * font-family giver teksten på knappen dens font, her "Inter", sans-serif.
 * font-size angiver størrelsen på teksten, her 0.9 rem. 
 
-**<font color="yellow">JavaScript</font>**
+**<font color="gold">JavaScript</font>**
 
 I tablettens JavaScripts er der 2 filer der anvender localStorage:
 
@@ -538,7 +538,7 @@ I det sidste stykke oprettes funktionen `resetPuzzle()`, som bruges til at slett
 
 **Følgende er fra filen `phone-scanner.js`.**
 
-**<font color="yellow">JavaScript</font>**
+**<font color="gold">JavaScript</font>**
 
 Her bliver localStorage brugt i:
 
